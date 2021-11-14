@@ -1,0 +1,15 @@
+{
+  "name": "@illuxdev/atron",
+  "version": "0.1.0",
+  "description": "",
+  "main": "dist/Atron.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Illux",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-typescript": "^8.3.0"
+  }
+}
