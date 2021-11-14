@@ -8,7 +8,7 @@
   ],
   "types": "dist/index.d.ts",
   "scripts": {
-    "start": "ts-node ../atron/Atron.ts start"
+    "start": "ts-node ../atron/Atron.ts --start"
   },
   "keywords": [],
   "author": "Illux",
