@@ -19,7 +19,7 @@ function createWindow() {
 		app.exit();
 	});
 
-	window.loadURL("https://google.com");
+	window.loadURL("http://localhost:3000");
 	window.webContents.on("did-finish-load", () => rendererLoaded());
 }
 

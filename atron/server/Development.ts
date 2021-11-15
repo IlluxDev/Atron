@@ -6,7 +6,27 @@ export class DevelopmentServer {
 	private onServerStopping = [] as any[];
 
 	public constructor() {
-		this.runElectron();
+		this.runReact().then(port => {
+			this.runElectron();
+		});
+	}
+
+	private runReact(): Promise<number> {
+		return new Promise(resolve => {
+			const reactServer = exec("npx vite", {
+				cwd: process.cwd()
+			});
+
+			let initialReady = false;
+
+			reactServer.stdout?.on("data", data => {
+				if (!initialReady) {
+					if (data.startsWith("  > Local: http://localhost")) {
+						resolve(3000);
+					}
+				}
+			});
+		});
 	}
 
 	private stopDevelopment() {
