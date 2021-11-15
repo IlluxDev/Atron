@@ -1,0 +1,6 @@
+----- ---- --- | Compile Electron | --- ---- -----
+ - run: "npx tsc --outDir ../.atron" from the ./atron folder
+ - spawn electron via the newly generated "./.atron/_GetElectron.js" and restart if changed are made to that folder
+
+----- ---- --- | Run React Dv Srv | --- ---- -----
+ - run: "npx vite"

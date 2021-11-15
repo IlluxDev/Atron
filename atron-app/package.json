@@ -1,7 +1,7 @@
 {
-  "name": "atron-app",
+  "name": "@illuxdev/atron-app",
   "productName": "atron-app",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "My Electron application description",
   "main": ".webpack/main",
   "scripts": {
@@ -12,11 +12,8 @@
     "lint": "eslint --ext .ts,.tsx ."
   },
   "keywords": [],
-  "author": {
-    "name": "XfaonAE",
-    "email": "xfaonae@gmail.com"
-  },
-  "license": "MIT",
+  "author": "XfaonAE <xfaonae@gmail.com>",
+  "license": "Apache-2.0",
   "config": {
     "forge": {
       "packagerConfig": {},

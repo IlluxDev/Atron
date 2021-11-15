@@ -109,3 +109,4 @@ dist
 *.map
 !rollup.config.js
 docs
+.resources
