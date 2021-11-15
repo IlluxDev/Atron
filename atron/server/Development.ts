@@ -1,4 +1,4 @@
-import { exec } from "child_process";
+import { ChildProcessWithoutNullStreams, exec, spawn } from "child_process";
 import path from "path";
 
 export class DevelopmentServer {
@@ -13,7 +13,9 @@ export class DevelopmentServer {
 			console.log("TypeScript compiler is ready");
 
 			this.initializeElectronDistLocation().then(() => {
-				console.log("[ DEBUG ] Electron dist is at " + this.electronDistLocation);
+				this.startElectronDevelopmentServer().then(() => {
+
+				});
 			});
 		});
 	}
@@ -24,7 +26,7 @@ export class DevelopmentServer {
 			const distGetter = exec("node _GetElectron.js", { cwd: atronLocation });
 
 			distGetter.stdout?.on("data", data => {
-				this.electronDistLocation = data;
+				this.electronDistLocation = data.replace("\n", "");
 				resolve();
 			});
 		});
@@ -32,7 +34,15 @@ export class DevelopmentServer {
 
 	private startElectronDevelopmentServer(): Promise<void> {
 		return new Promise(resolve => {
+			let windowProcess: ChildProcessWithoutNullStreams;
 
+			const reRunElectron = () => {
+				windowProcess = spawn(this.electronDistLocation!, {
+					cwd: process.cwd()
+				});
+			}
+
+			reRunElectron();
 		});
 	}
 
