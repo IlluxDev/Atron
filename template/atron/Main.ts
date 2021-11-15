@@ -9,7 +9,11 @@ function createWindow() {
 		show: false
 	});
 
-	window.loadURL("https://google.com");
+	const rendererLoaded = () => {
+		process.stdout.write("[SYS]-ready");
+	};
+
+	window.loadURL("https://google.com").then(() => rendererLoaded());
 	window.show();
 }
 

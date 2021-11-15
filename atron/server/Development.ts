@@ -14,7 +14,7 @@ export class DevelopmentServer {
 
 			this.initializeElectronDistLocation().then(() => {
 				this.startElectronDevelopmentServer().then(() => {
-
+					console.log("Electron development service is ready");
 				});
 			});
 		});
@@ -37,8 +37,28 @@ export class DevelopmentServer {
 			let windowProcess: ChildProcessWithoutNullStreams;
 
 			const reRunElectron = () => {
-				windowProcess = spawn(this.electronDistLocation!, {
+				windowProcess = spawn(this.electronDistLocation!, ["."], {
 					cwd: process.cwd()
+				});
+
+				let initialReady = false;
+
+				windowProcess.stdout.on("data", (data: Buffer) => {
+					let response = "";
+					let mode = "";
+
+					if (data.toString().startsWith("[SYS]-")) {
+						response = data.toString().substring(6);
+						mode = "system";
+					}
+
+					switch (mode) {
+						case "system":
+							if (response == "ready") {
+								resolve();
+							}
+							break;
+					}
 				});
 			}
 
