@@ -2,7 +2,7 @@
   "name": "@illux/atron-template",
   "version": "0.1.0",
   "description": "",
-  "main": "electron",
+  "main": "atron/build/Window.js",
   "files": [
     "dist"
   ],
@@ -19,6 +19,7 @@
     "@rollup/plugin-typescript": "^8.2.5",
     "@types/react": "^17.0.18",
     "electron": "^15.3.1",
+    "electron-builder": "^22.13.1",
     "react": "^17.0.2",
     "react-scripts": "^4.0.3",
     "rimraf": "^3.0.2",
