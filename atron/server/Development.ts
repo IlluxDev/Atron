@@ -22,7 +22,12 @@ export class DevelopmentServer {
 			reactServer.stdout?.on("data", data => {
 				if (!initialReady) {
 					if (data.startsWith("  > Local: http://localhost")) {
-						resolve(3000);
+						let portRegExp = /> Local: http:\/\/localhost:(.*?)\n/.exec(data);
+
+						if (portRegExp) {
+							console.log("ReactJS development server is ready");
+							resolve(+portRegExp[1] as number);
+						}
 					}
 				}
 			});
