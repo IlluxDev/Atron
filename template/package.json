@@ -4,7 +4,7 @@
   "description": "",
   "main": ".atron/Main.js",
   "scripts": {
-    "start": "npx ts-node ../atron/Atron.ts --start"
+    "start": "npx ts-node ../atron/Atron.ts --start --instantReload"
   },
   "author": "Illux",
   "license": "Apache-2.0",

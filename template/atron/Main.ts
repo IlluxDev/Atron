@@ -4,17 +4,23 @@ function createWindow() {
 	let displaySize = screen.getPrimaryDisplay().workAreaSize;
 
 	const window = new BrowserWindow({
-		width: displaySize.width - 40,
-		height: displaySize.height - 40,
-		show: false
+		width: displaySize.width - 180,
+		height: displaySize.height - 180,
+		show: false,
+		titleBarStyle: "hidden"
 	});
 
 	const rendererLoaded = () => {
 		window.show();
-		process.stdout.write("[SYS]-ready");
-	};
+		
+		window.on("show", () => {
+			window.focus();
+		});
 
-	window.on("closed", () => {
+		process.stdout.write("[SYS]-ready"); 
+	};
+ 
+	window.on("close", () => { 
 		console.log("[SYS]-exit");
 		app.exit();
 	});

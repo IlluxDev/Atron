@@ -1,11 +1,21 @@
 import { ChildProcessWithoutNullStreams, exec, spawn } from "child_process";
 import path from "path";
+import chokidar from "chokidar";
+import { DevelopmentOptions } from "./DevelopmentOptions";
+import deepmerge from "deepmerge";
 
 export class DevelopmentServer {
 	private electronDistLocation?: string;
 	private onServerStopping = [] as any[];
+	private settings: DevelopmentOptions;
 
-	public constructor() {
+	public constructor(options: DevelopmentOptions) {
+		this.settings = deepmerge({
+			electron: {
+				saveReloadTime: 3000
+			}
+		}, options);
+
 		this.runReact().then(port => {
 			this.runElectron();
 		});
@@ -65,6 +75,7 @@ export class DevelopmentServer {
 	private startElectronDevelopmentServer(): Promise<void> {
 		return new Promise(resolve => {
 			let windowProcess: ChildProcessWithoutNullStreams;
+			const compiledWindowLocation = path.join(process.cwd(), "./.atron");
 
 			const reRunElectron = () => {
 				windowProcess = spawn(this.electronDistLocation!, ["."], {
@@ -84,7 +95,8 @@ export class DevelopmentServer {
 
 					switch (mode) {
 						case "system":
-							if (response == "ready") {
+							if (response == "ready" && !initialReady) {
+								initialReady = true;
 								resolve();
 							}
 
@@ -96,6 +108,26 @@ export class DevelopmentServer {
 					}
 				});
 			}
+
+			let restartTimer: NodeJS.Timer;
+
+			const restart = () => {
+				if (restartTimer) {
+					clearTimeout(restartTimer);
+				}
+
+				restartTimer = setTimeout(() => {
+					windowProcess.kill();
+					reRunElectron();
+				}, this.settings.electron?.saveReloadTime);
+			}
+
+			const compiledWatcher = chokidar.watch(compiledWindowLocation);
+			compiledWatcher
+				.on("add", restart)
+				.on("unlink", restart)
+				.on("unlinkDir", restart)
+				.on("change", restart);
 
 			reRunElectron();
 		});

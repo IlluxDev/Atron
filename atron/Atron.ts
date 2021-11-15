@@ -11,13 +11,22 @@ const atron = new Command();
 atron.version("0.1.0");
 atron
 	.option("--start", "Start a development server")
+	.option("--instantReload", "Reload Electron on save without a delay")
 	.option("--build", "Build your application for production")
 	.parse();
 
 const options = atron.opts();
 
+if (options.instantReload && !options.start) {
+	terminal.log("--instantReload cannot be used without --start");
+}
+
 if (options.start) {
-	new DevelopmentServer();
+	new DevelopmentServer({
+		electron: {
+			saveReloadTime: options.instantReload ? 0 : 3000
+		}
+	});
 } else if (options.build) {
 	terminal.log("Sorry but this han't been implemented yet");
 }
