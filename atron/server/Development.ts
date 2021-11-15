@@ -3,6 +3,7 @@ import path from "path";
 import chokidar from "chokidar";
 import { DevelopmentOptions } from "./DevelopmentOptions";
 import deepmerge from "deepmerge";
+import { readFileSync, writeFileSync } from "fs";
 
 export class DevelopmentServer {
 	private electronDistLocation?: string;
@@ -12,9 +13,16 @@ export class DevelopmentServer {
 	public constructor(options: DevelopmentOptions) {
 		this.settings = deepmerge({
 			electron: {
-				saveReloadTime: 3000
+				saveReloadTime: 3000,
+				main: "./.atron/Main.js"
 			}
 		}, options);
+
+		const projectPackageRaw = readFileSync(path.join(process.cwd(), "./package.json")).toString();
+		const projectPackage = JSON.parse(projectPackageRaw);
+
+		projectPackage.main = this.settings.electron?.main;
+		writeFileSync(path.join(process.cwd(), "./package.json"), JSON.stringify(projectPackage, null, "	"));
 
 		this.runReact().then(port => {
 			this.runElectron();

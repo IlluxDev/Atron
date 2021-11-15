@@ -1,14 +1,16 @@
 import { app, BrowserWindow, screen } from "electron";
+import { AtronElectron } from "@illuxdev/atron-electron/AtronElectron";
 
 function createWindow() {
 	let displaySize = screen.getPrimaryDisplay().workAreaSize;
 
-	const window = new BrowserWindow({
+	const atron = new AtronElectron();
+
+	const window = new BrowserWindow(atron.extendElectronOptions({
 		width: displaySize.width - 180,
 		height: displaySize.height - 180,
-		show: false,
-		titleBarStyle: "hidden"
-	});
+		show: false
+	}));
 
 	const rendererLoaded = () => {
 		window.show();
