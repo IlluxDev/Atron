@@ -1,3 +1,4 @@
+import { Button } from "../../atron-ui-native-switch/Plugin";
 import { useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
@@ -14,6 +15,7 @@ function App() {
           <button type="button" onClick={() => setCount((count) => count + 1)}>
             count is: {count}
           </button>
+		  <Button />
         </p>
         <p>
           Edit <code>App.tsx</code> and save to test HMR updates.
