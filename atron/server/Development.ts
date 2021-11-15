@@ -3,9 +3,14 @@ import path from "path";
 
 export class DevelopmentServer {
 	private electronDistLocation?: string;
+	private onServerStopping = [] as any[];
 
 	public constructor() {
 		this.runElectron();
+	}
+
+	private stopDevelopment() {
+		this.onServerStopping.forEach(event => event());
 	}
 
 	private runElectron() {
@@ -57,6 +62,11 @@ export class DevelopmentServer {
 							if (response == "ready") {
 								resolve();
 							}
+
+							if (response == "exit") {
+								this.stopDevelopment();
+								windowProcess.kill();
+							}
 							break;
 					}
 				});
@@ -80,6 +90,10 @@ export class DevelopmentServer {
 				})()
 				: null
 			);
+
+			this.onServerStopping.push(() => {
+				process.kill(-typescriptCompiler.pid!);
+			});
 		});
 	}
 }

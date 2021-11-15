@@ -10,11 +10,17 @@ function createWindow() {
 	});
 
 	const rendererLoaded = () => {
+		window.show();
 		process.stdout.write("[SYS]-ready");
 	};
 
-	window.loadURL("https://google.com").then(() => rendererLoaded());
-	window.show();
+	window.on("closed", () => {
+		console.log("[SYS]-exit");
+		app.exit();
+	});
+
+	window.loadURL("https://google.com");
+	window.webContents.on("did-finish-load", () => rendererLoaded());
 }
 
 app.on("ready", () => createWindow());
