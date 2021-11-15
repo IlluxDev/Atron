@@ -1,4 +1,5 @@
 import { Command } from "commander";
+import { DevelopmentServer } from "./server/Development";
 
 const terminal = {
 	log(text: string) {
@@ -16,7 +17,7 @@ atron
 const options = atron.opts();
 
 if (options.start) {
-	terminal.log("Starting development server");
+	new DevelopmentServer();
 } else if (options.build) {
 	terminal.log("Sorry but this han't been implemented yet");
 }
