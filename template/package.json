@@ -2,7 +2,7 @@
   "name": "@illuxdev/atron-template",
   "version": "0.1.0",
   "description": "",
-  "main": "index.js",
+  "main": ".atron/Main.js",
   "scripts": {
     "start": "npx ts-node ../atron/Atron.ts --start"
   },
