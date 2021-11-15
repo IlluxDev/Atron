@@ -1,5 +1,5 @@
 import { Command } from "commander";
-import { DevelopmentServer } from "./server/Development";
+import { developmentOptionsDefault, DevelopmentServer } from "./server/Development";
 
 const terminal = {
 	log(text: string) {
@@ -26,12 +26,11 @@ if (options.atronMain && !options.start) {
 	terminal.log("--atronMain can only be used with --start");
 }
 
-console.log(options.atronMain == null ? undefined : options.atronMain, options)
-
 if (options.start) {
 	new DevelopmentServer({
 		electron: {
-			saveReloadTime: options.instantReload ? 0 : 3000
+			saveReloadTime: options.instantReload ? 0 : 3000,
+			main: !options.atronMain ? developmentOptionsDefault.electron!.main : options.atronMain
 		}
 	});
 } else if (options.build) {
