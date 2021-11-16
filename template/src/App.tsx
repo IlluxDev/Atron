@@ -1,4 +1,4 @@
-import { Button, NavigationView, RootLayout, TitleBar, TitleBarOverlay } from "../../atron-ui-native-switch/Plugin";
+import { Button, NavigationView, RootLayout, TitleBarOverlay } from "../../atron-ui-native-switch/Plugin";
 import { useState } from 'react'
 import './App.css'
 
@@ -6,11 +6,11 @@ function App() {
   return (
     <div>
 		<RootLayout>
-			<NavigationView>
+			<NavigationView title="My App">
 				<h1>Hello Atron</h1>
 			</NavigationView>
-			<TitleBarOverlay />
 		</RootLayout>
+		<TitleBarOverlay />
     </div>
   )
 }

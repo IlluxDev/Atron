@@ -14,10 +14,10 @@ $rootLayout_background: #242424d1;
 
 // NavigationView
 $navigationView_mainAreaBackground: rgba(255, 255, 255, 0.05);
-$navigationView_headerTitleColor: #fff;
-$navigationView_headerButtonTextColor: #fff;
-$navigationView_headerButtonHoverBackground: rgba(255, 255, 255, 0.05);
-$navigationView_headerButtonActiveBackground: rgba(255, 255, 255, 0.03);
-$navigationView_sideBarButtonHoverBackground: rgba(255, 255, 255, 0.05);
-$navigationView_sideBarButtonActiveBackground: rgba(255, 255, 255, 0.03);
-$navigationView_sideBarButtonTextColor: #fff;
+$navigationView_titleBarTitleTextColor: #fff;
+$navigationView_buttonHoverBackground: rgba(255, 255, 255, 0.05);
+$navigationView_buttonActiveBackground: rgba(255, 255, 255, 0.03);
+$navigationView_buttonTextColor: #fff;
+$navigationView_contentAreaBackground: rgba(255, 255, 255, 0.05);
+$navigationView_titleBarTextColor: #fff;
+$navigationView_leftSideBarFloatingBackground: #242424;

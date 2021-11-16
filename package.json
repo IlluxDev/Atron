@@ -1,16 +1,17 @@
 {
-  "dependencies": {
-    "ts-node": "^10.4.0",
-    "typescript": "^4.4.4"
-  },
-  "scripts": {
-	  "setup:atron-electron": "cd atron-electron && yarn && cd ..",
-	  "setup:atron-ui-native-switch": "cd atron-ui-native-switch && yarn && cd ..",
-	  "setup:atron": "cd atron && yarn && cd ..",
-	  "setup:template": "cd template && yarn && cd ..",
-	  "setup:dev": "npm run setup:atron-electron && npm run setup:atron-ui-native-switch && npm run setup:atron && npm run setup:template",
-	  "start:template": "cd template && yarn start && cd ..",
-	  "postinstall": "npm run setup:dev",
-	  "dev:start": "cd atron-electron && tsc --watch"
+	"dependencies": {
+	  "ts-node": "^10.4.0",
+	  "typescript": "^4.4.4"
+	},
+	"scripts": {
+		"setup:atron-electron": "cd atron-electron && yarn && cd ..",
+		"setup:atron-ui-native-switch": "cd atron-ui-native-switch && yarn && cd ..",
+		"setup:atron": "cd atron && yarn && cd ..",
+		"setup:template": "cd template && yarn && cd ..",
+		"setup:dev": "npm run setup:atron-electron && npm run setup:atron-ui-native-switch && npm run setup:atron && npm run setup:template",
+		"start:template": "cd template && yarn start && cd ..",
+		"postinstall": "npm run setup:dev",
+		"dev:start": "cd atron-electron && tsc --watch"
+	}
   }
-}
+  
