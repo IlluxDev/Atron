@@ -20,6 +20,14 @@
 	justify-content: center;
 	color: $titleBarOverlay_buttonTextColor;
 
+	&:nth-child(1) {
+		font-size: 17px;
+	}
+
+	&:nth-child(3) {
+		font-size: 17px;
+	}
+
 	&:hover {
 		background: $titleBarOverlay_buttonHoverBackground;
 

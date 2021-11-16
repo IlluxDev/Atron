@@ -11,6 +11,27 @@ export class AtronElectron {
 			ipcMain.on("_atron:window:button:minimize", (event) => {
 				this.browserWindow?.minimize();
 			});
+
+			ipcMain.on("_atron:window:button:maximize", (event) => {
+				this.browserWindow?.maximize();
+			});
+
+			this.browserWindow.on("maximize", () => {
+				browserWindow.webContents.send("_atron:window:maximized _event");
+			});
+
+			this.browserWindow.on("unmaximize", () => {
+				browserWindow.webContents.send("_atron:window:unMaximized _event");
+			});
+
+			this.browserWindow.on("ready-to-show", () => {
+				if (this.browserWindow?.isMaximized()) {
+					browserWindow.webContents.send("_atron:window:maximized _event");
+					return;
+				}
+
+				browserWindow.webContents.send("_atron:window:unMaximized _event");
+			});
 			return;
 		}
 
