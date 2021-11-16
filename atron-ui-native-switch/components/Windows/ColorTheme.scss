@@ -1,2 +1,12 @@
 // TitleBar
 $titleBar_background: #202020;
+$titleBar_titleColor: #fff;
+$titleBar_windowButtonHoverBackground: rgba(255, 255, 255, 0.1);
+$titleBar_windowButtonActiveBackground: rgba(255, 255, 255, 0.2);
+$titleBar_windowButtonCloseHoverBackground: #c82c1c;
+$titleBar_windowButtonCloseActiveBackground: #b3271c;
+$titleBar_windowButtonCloseActiveTextColor: #e5aba7;
+$titleBar_windowButtonTextColor: #fff;
+
+// RootLayout
+$rootLayout_background: #242424;

@@ -9,7 +9,11 @@ export class AtronElectron {
 		return deepmerge<BrowserWindowConstructorOptions>({
 			frame: true,
 			titleBarOverlay: false,
-			titleBarStyle: "hidden"
+			titleBarStyle: "hidden",
+			webPreferences: {
+				contextIsolation: false,
+				nodeIntegration: true
+			}
 		}, options ?? {});
 	} 
 }
