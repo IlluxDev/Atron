@@ -9,12 +9,12 @@ function createWindow() {
 	const window = new BrowserWindow(atron.extendElectronOptions({
 		width: displaySize.width - 180,
 		height: displaySize.height - 180,
-		show: false
+		show: false,
 	}));
 
 	atron.setBrowserWindow(window);
 
-	const rendererLoaded = () => {
+	const rendererLoaded = () => { 
 		window.show();
 		
 		window.on("show", () => {

@@ -18,7 +18,7 @@
 		"vite": "^2.6.4"
 	},
 	"dependencies": {
-		"@illuxdev/atron-electron": "file:../atron-electron",
+		"@illuxdev/atron-electron": "file:./../atron-electron",
 		"react": "^17.0.0",
 		"react-dom": "^17.0.0"
 	},

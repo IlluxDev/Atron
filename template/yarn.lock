@@ -299,6 +299,13 @@
     commander "^8.3.0"
     deepmerge "^4.2.2"
 
+"@illuxdev/atron-electron@file:./../atron-electron":
+  version "0.1.0"
+  dependencies:
+    chokidar "^3.5.2"
+    commander "^8.3.0"
+    deepmerge "^4.2.2"
+
 "@malept/cross-spawn-promise@^1.1.0":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@malept/cross-spawn-promise/-/cross-spawn-promise-1.1.1.tgz#504af200af6b98e198bce768bc1730c6936ae01d"

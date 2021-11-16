@@ -1,5 +1,4 @@
 // TitleBar
-$titleBar_background: #202020;
 $titleBar_titleColor: #fff;
 
 // TitleBarOverlay
@@ -11,4 +10,14 @@ $titleBarOverlay_buttonCloseActiveTextColor: #e5aba7;
 $titleBarOverlay_buttonTextColor: #fff;
 
 // RootLayout
-$rootLayout_background: #242424;
+$rootLayout_background: #242424d1;
+
+// NavigationView
+$navigationView_mainAreaBackground: rgba(255, 255, 255, 0.05);
+$navigationView_headerTitleColor: #fff;
+$navigationView_headerButtonTextColor: #fff;
+$navigationView_headerButtonHoverBackground: rgba(255, 255, 255, 0.05);
+$navigationView_headerButtonActiveBackground: rgba(255, 255, 255, 0.03);
+$navigationView_sideBarButtonHoverBackground: rgba(255, 255, 255, 0.05);
+$navigationView_sideBarButtonActiveBackground: rgba(255, 255, 255, 0.03);
+$navigationView_sideBarButtonTextColor: #fff;

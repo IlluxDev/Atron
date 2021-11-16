@@ -1,0 +1,88 @@
+@import "../ColorTheme.scss";
+
+.root {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+}
+
+.mainArea {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	position: relative;
+}
+
+.mainContent {
+	width: 100%;
+	height: 100%;
+	background: $navigationView_mainAreaBackground;
+	border-radius: 8px 0 0 0;
+	padding: 10px;
+	overflow: auto;
+}
+
+.header {
+	width: 100%;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	padding: 0 10px;
+	-webkit-app-region: drag;
+}
+
+.headerTitle {
+	color: $navigationView_headerTitleColor;
+	margin-left: 15px;
+	font-size: 12px;
+}
+
+.headerButton {
+	border: none;
+	background: transparent;
+	border-radius: 4px;
+	color: $navigationView_headerButtonTextColor;
+	-webkit-app-region: no-drag;
+	margin-right: 5px;
+	width: 35px;
+	height: 30px;
+	font-size: 17px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&:hover {
+		background: $navigationView_headerButtonHoverBackground;
+
+		&:active {
+			background: $navigationView_headerButtonActiveBackground;
+		}
+	}
+}
+
+.sideBar {
+	padding: 0 10px;
+}
+
+.sideBarButton {
+	width: 35px;
+	height: 30px;
+	border-radius: 4px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: transparent;
+	font-size: 17px;
+	border: none;
+	color: $navigationView_sideBarButtonTextColor;
+
+	&:hover {
+		background: $navigationView_sideBarButtonHoverBackground;
+
+		&:active {
+			background: $navigationView_sideBarButtonActiveBackground;
+		}
+	}
+}

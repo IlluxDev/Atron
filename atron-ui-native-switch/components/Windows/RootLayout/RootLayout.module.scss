@@ -8,4 +8,5 @@
 	height: 100vh;
 	overflow: auto;
 	background: $rootLayout_background;
+	backdrop-filter: blur(200px);
 }
