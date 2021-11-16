@@ -147,13 +147,24 @@ export class DevelopmentServer {
 			let initialStarted = false;
 
 			const typescriptCompiler = exec(compileCommand, { cwd: atronLocation });
-			typescriptCompiler.stdout?.on("data", () => !initialStarted 
+			typescriptCompiler.stdout?.on("data", (data: string) => !initialStarted 
 				? (() => { 
-					initialStarted = true;
-					resolve();
+					if (data.includes("Watching for file changes.")) {
+						initialStarted = true;
+						resolve();
+					}
 				})()
 				: null
 			);
+
+			// typescriptCompiler.stderr?.on("data", data => !initialStarted 
+			// 	? (() => { 
+			// 		initialStarted = false;
+			// 		console.log(data.replace("\n", "").split("") + "<-er")
+			// 		resolve();
+			// 	})()
+			// 	: null
+			// );
 
 			this.onServerStopping.push(() => {
 				process.kill(-typescriptCompiler.pid!);
