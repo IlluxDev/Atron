@@ -17,16 +17,17 @@ export function NavigationView(props: NavigationViewProps) {
 			</div>
 
 			<div className={styles.mainArea}>
-				<div className={styles.sideBar}>
+				<div className={`${styles.sideBar} ${sideBarOpened ? styles.sideBarOpened : {}}`}>
 					<div>
 						<button onClick={() => sideBarOpened ? setSideBarOpenedState(false) : setSideBarOpenedState(true)} className={styles.sideBarButton}>
 							<Icon icon="fluent:navigation-16-regular" />
 						</button>
 
-						<button className={`${styles.sideBarButton} ${sideBarOpened ? styles.sideBarButtonOpened : {}}`}>
-							{ !sideBarOpened ? <Icon icon="fluent:search-16-regular" /> : null }
-							{ sideBarOpened ? <input /> : null }
-						</button>
+						{ !sideBarOpened ? <button className={styles.sideBarButton}>
+							<Icon icon="fluent:search-16-regular" />
+						</button> : null }
+
+						{ sideBarOpened ? <input /> : null}
 					</div>
 
 					<div className={styles.sideBarContent}>

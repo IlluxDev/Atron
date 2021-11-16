@@ -68,6 +68,8 @@
 	flex-direction: column;
 	overflow: hidden;
 	justify-content: space-between;
+	transition: width 300ms;
+	width: 60px;
 }
 
 .sideBarContent {
@@ -84,7 +86,6 @@
 	align-items: center;
 	justify-content: center;
 	background: transparent;
-	transition: width 300ms;
 	font-size: 16px;
 	border: none;
 	color: $navigationView_sideBarButtonTextColor;
@@ -106,7 +107,7 @@
 }
 
 .sideBarButtonOpened {
-	width: 280px;
+	width: 260px;
 	justify-content: flex-start;
 	padding-left: 10px;
 
@@ -114,4 +115,9 @@
 		width: initial;
 		margin-left: 10px;
 	}
+}
+
+.sideBarOpened {
+	min-width: 280px;
+	width: 280px;
 }
