@@ -12,6 +12,8 @@ function createWindow() {
 		show: false
 	}));
 
+	atron.setBrowserWindow(window);
+
 	const rendererLoaded = () => {
 		window.show();
 		

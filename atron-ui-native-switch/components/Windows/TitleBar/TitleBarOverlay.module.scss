@@ -1,0 +1,39 @@
+@import "../ColorTheme.scss";
+
+.root {
+	position: fixed;
+	top: 0;
+	right: 0;
+	display: flex;
+	flex-direction: row;
+}
+
+.button {
+	height: 32px;
+	width: 45px;
+	border: none;
+	-webkit-app-region: no-drag;
+	background: transparent;
+	font-size: 16px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: $titleBarOverlay_buttonTextColor;
+
+	&:hover {
+		background: $titleBarOverlay_buttonHoverBackground;
+
+		&:nth-child(3) {
+			background: $titleBarOverlay_buttonCloseHoverBackground;
+		}
+
+		&:active {
+			background: $titleBarOverlay_buttonActiveBackground;
+
+			&:nth-child(3) {
+				background: $titleBarOverlay_buttonCloseActiveBackground;
+				color: $titleBarOverlay_buttonCloseActiveTextColor;
+			}
+		}
+	}
+}
