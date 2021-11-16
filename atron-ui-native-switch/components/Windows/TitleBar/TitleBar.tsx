@@ -4,7 +4,7 @@ import styles from "./TitleBar.module.scss";
 export function TitleBar() {
 	return (
 		<div className={styles.root}>
-			<div>
+			<div className={styles.leftWrapper}>
 				<span className={styles.title}>Microsoft Store</span>
 			</div>
 		</div>	

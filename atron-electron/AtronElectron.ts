@@ -23,7 +23,7 @@ export class AtronElectron {
 			this.browserWindow.on("unmaximize", () => {
 				browserWindow.webContents.send("_atron:window:unMaximized _event");
 			});
-
+ 
 			this.browserWindow.on("ready-to-show", () => {
 				if (this.browserWindow?.isMaximized()) {
 					browserWindow.webContents.send("_atron:window:maximized _event");

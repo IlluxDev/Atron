@@ -27,6 +27,10 @@ export function TitleBarOverlay() {
 	function maximizeWindow() {
 		ipc.send("_atron:window:button:maximize", {});
 	}
+
+	function closeWindow() {
+		window.close();
+	}
 	
 	return (
 		<div className={styles.root}>
@@ -42,7 +46,7 @@ export function TitleBarOverlay() {
 				<Icon fr icon="fluent:restore-16-regular" />
 			</button> : null }
 
-			<button className={styles.button}>
+			<button onClick={() => closeWindow()} className={styles.button}>
 				<Icon fr icon="fluent:dismiss-16-regular" />
 			</button>
 		</div>
