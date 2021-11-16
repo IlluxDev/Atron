@@ -12,6 +12,7 @@
 	align-items: center;
 	padding: 10px;
 	position: relative;
+	-webkit-app-region: drag;
 
 	& > span {
 		color: $navigationView_titleBarTextColor;
@@ -30,11 +31,15 @@
 	background: transparent;
 	z-index: -1;
 	transition: 300ms;
+	border-right: 1px solid transparent;
+	border-top: 1px solid transparent;
 }
 
 .largeTitleBarCoverOpened {
 	@media (max-width: 1000px) {
-		width: 260px;
+		width: 320px;
+		border-right: 1px solid $navigationView_leftSideBarFloatingBorder;
+		border-top: 1px solid $navigationView_leftSideBarFloatingBorder;
 		background: $navigationView_leftSideBarFloatingBackground;
 	}
 }
@@ -75,8 +80,8 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 35px;
-	height: 30px;
+	width: 40px;
+	height: 35px;
 	background: transparent;
 	color: $navigationView_buttonTextColor;
 	font-size: 16px;
@@ -87,18 +92,18 @@
 }
 
 .leftTextButton {
-	width: 35px;
-	min-height: 30px;
+	width: 40px;
+	min-height: 35px;
 	border: none;
 	display: flex;
 	align-items: center;
-	padding-left: 10px;
+	padding-left: 12px;
 	background: transparent;
 	border-radius: 4px;
 	font-size: 16px;
-	margin: 0 4px 5px 4px;
+	margin: 0 5px 5px 5px;
 	color: $navigationView_buttonTextColor;
-	
+
 	&:hover {
 		background: $navigationView_buttonHoverBackground;
 		
@@ -118,7 +123,7 @@
 }
 
 .leftSideBar {
-	width: 44px;
+	width: 50px;
 	transition: 300ms;
 	display: flex;
 	flex-direction: column;
@@ -137,10 +142,12 @@
 }
 
 .leftSideBarOpened {
-	width: 260px;
+	width: 320px;
 	
 	@media (max-width: 1000px) {
 		background: $navigationView_leftSideBarFloatingBackground;
+		border-right: 1px solid $navigationView_leftSideBarFloatingBorder;
+		border-bottom: 1px solid $navigationView_leftSideBarFloatingBorder;
 	}
 }
 
@@ -162,7 +169,7 @@
 }
 
 .leftTextButtonOpened {
-	width: calc(100% - 8px);
+	width: calc(100% - 10px);
 
 	& > span {
 		width: initial;
