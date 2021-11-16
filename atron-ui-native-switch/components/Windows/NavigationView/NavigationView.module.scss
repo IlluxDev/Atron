@@ -64,6 +64,16 @@
 
 .sideBar {
 	padding: 0 10px;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	justify-content: space-between;
+}
+
+.sideBarContent {
+	height: 100%;
+	width: 100%;
+	overflow: auto;
 }
 
 .sideBarButton {
@@ -74,9 +84,17 @@
 	align-items: center;
 	justify-content: center;
 	background: transparent;
-	font-size: 17px;
+	transition: width 300ms;
+	font-size: 16px;
 	border: none;
 	color: $navigationView_sideBarButtonTextColor;
+	margin-bottom: 5px;
+
+	& > span {
+		width: 0;
+		overflow: hidden;
+		font-size: 13px;
+	}
 
 	&:hover {
 		background: $navigationView_sideBarButtonHoverBackground;
@@ -84,5 +102,16 @@
 		&:active {
 			background: $navigationView_sideBarButtonActiveBackground;
 		}
+	}
+}
+
+.sideBarButtonOpened {
+	width: 280px;
+	justify-content: flex-start;
+	padding-left: 10px;
+
+	span {
+		width: initial;
+		margin-left: 10px;
 	}
 }
