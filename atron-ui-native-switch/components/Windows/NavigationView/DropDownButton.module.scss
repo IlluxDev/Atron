@@ -17,8 +17,12 @@
 	border-radius: 4px;
 	align-items: center;
 	padding-left: 12px;
+	flex-direction: row;
 
 	span {
+		display: flex;
+		flex-direction: row;
+
 		span:nth-child(1) {
 			font-size: 16px;
 		}
@@ -28,9 +32,36 @@
 		}
 	}
 
+	div {
+		width: 30px;
+		height: 25px;
+		border-radius: 4px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: $navigationView_buttonTextColor;
+
+		&:hover {
+			background: $navigationView_buttonHoverBackground;
+
+			&:active {
+				background: $navigationView_buttonActiveBackground;
+			}
+		}
+	}
+
 	&:hover {
 		background: $navigationView_buttonHoverBackground;
 	}
+}
+
+.dropDown {
+	transition: 100ms;
+	overflow: hidden;
+}
+
+.dropDownClosed {
+	height: 0;
 }
 
 .buttonHideText {
@@ -40,7 +71,7 @@
 		}
 	}
 
-	button {
+	div {
 		display: none;
 	}
 }
