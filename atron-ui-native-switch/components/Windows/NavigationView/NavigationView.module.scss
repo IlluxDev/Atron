@@ -18,6 +18,7 @@
 		color: $navigationView_titleBarTextColor;
 		font-size: 12px;
 		user-select: none;
+		font-weight: lighter;
 	}
 }
 
@@ -58,8 +59,8 @@
 	background: $navigationView_contentAreaBackground;
 
 	@media (max-width: 1000px) {
-		width: calc(100% - 44px);
-		margin-left: 44px;
+		width: calc(100% - 50px);
+		margin-left: 50px;
 	}
 }
 

@@ -4,7 +4,7 @@ import styles from "./NavigationView.module.scss";
 import { Icon } from "@iconify/react";
 
 export function NavigationView(props: NavigationViewProps) {
-	const [sideBarOpened, setSideBarOpenedState] = useState(document.body.offsetWidth <= 1000 ? false : true);
+	const [sideBarOpened, setSideBarOpenedState] = useState(document.body.offsetWidth > 1000);
 	
 	return (
 		<div className={styles.root}>
@@ -16,7 +16,7 @@ export function NavigationView(props: NavigationViewProps) {
 
 			{ props.position != "top" ? <div className={styles.leftContainer}>
 				<div className={styles.largeTitleBar}>
-					<div className={`${styles.largeTitleBarCover} ${sideBarOpened ? styles.largeTitleBarCoverOpened : {}}`}></div>
+					<div className={`${styles.largeTitleBarCover} ${sideBarOpened ? styles.largeTitleBarCoverOpened : {}}`} />
 					<span>{props.title}</span>
 				</div>
 

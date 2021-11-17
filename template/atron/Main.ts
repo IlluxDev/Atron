@@ -9,9 +9,10 @@ function createWindow() {
 	const window = new BrowserWindow(atron.extendElectronOptions({
 		width: displaySize.width - 180,
 		height: displaySize.height - 180,
-		show: false,
+		show: false
 	}));
 
+	// Set atron source
 	atron.setBrowserWindow(window);
 
 	const rendererLoaded = () => { 

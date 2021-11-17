@@ -1,3 +1,6 @@
+// Theme
+$_theme_accent: #50ffab;
+
 // TitleBar
 $titleBar_titleColor: #fff;
 
@@ -22,3 +25,23 @@ $navigationView_contentAreaBackground: rgba(255, 255, 255, 0.05);
 $navigationView_titleBarTextColor: #fff;
 $navigationView_leftSideBarFloatingBackground: #1e1e1e;
 $navigationView_leftSideBarFloatingBorder: #383a39;
+
+// Dialog
+$dialog_backdropBackground: rgba(0, 0, 0, 0.5);
+$dialog_windowBackground: #202020;
+$dialog_windowFooterBackground: #191919;
+$dialog_windowTitleColor: #fff;
+$dialog_windowBodyColor: #d5d5d5;
+
+::-webkit-scrollbar {
+	width: 3px;
+	height: 3px;
+}
+
+::-webkit-scrollbar-track {
+	background: #121212;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #707070;
+}

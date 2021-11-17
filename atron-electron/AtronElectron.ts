@@ -1,5 +1,5 @@
 import deepmerge from "deepmerge";
-import { BrowserWindow, BrowserWindowConstructorOptions, dialog, ipcMain } from "electron"; 
+import { BrowserWindow, BrowserWindowConstructorOptions, ipcMain } from "electron";
 
 export class AtronElectron {
 	private browserWindow?: BrowserWindow;
@@ -14,6 +14,10 @@ export class AtronElectron {
 
 			ipcMain.on("_atron:window:button:maximize", (event) => {
 				this.browserWindow?.maximize();
+			});
+
+			ipcMain.on("_atron:window:button:restore", (event) => {
+				this.browserWindow?.restore();
 			});
 
 			this.browserWindow.on("maximize", () => {
