@@ -81,10 +81,10 @@ $dialog_windowTitleColor: #000;
 $dialog_windowBodyColor: #3e3e3e;
 
 // Button
-$button_background: rgba(255, 255, 255, 0.05);
+$button_background: rgba(255, 255, 255, 1);
 $button_textColor: #000;
-$button_hoverBackground: rgba(255, 255, 255, 0.08);
-$button_activeBackground: rgba(255, 255, 255, 0.02);
+$button_hoverBackground: rgba(255, 255, 255, 0.8);
+$button_activeBackground: rgba(255, 255, 255, 0.6);
 $button_activeTextColor: #999;
 
 ::-webkit-scrollbar {

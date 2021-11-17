@@ -28,6 +28,7 @@
 .primary {
 	background: $_theme_accent;
 	color: $_theme_accentTextColor;
+	border: none;
 
 	&:hover {
 		background: $_theme_accent;
