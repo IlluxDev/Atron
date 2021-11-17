@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { NavigationViewProps } from "./NavigationViewProps";
 import styles from "./NavigationView.module.scss";
 import { Icon } from "@iconify/react";
+import { TextBox } from "../TextBox/TextBox";
 
 export function NavigationView(props: NavigationViewProps) {
 	const [sideBarOpened, setSideBarOpenedState] = useState(document.body.offsetWidth > 1000);
@@ -36,7 +37,7 @@ export function NavigationView(props: NavigationViewProps) {
 							</button> : null }
 
 							{ sideBarOpened ? <div className={styles.leftSearchBar}>
-								<input />
+								<TextBox placeholder="Search Here" />
 							</div> : null }
 						</div>
 
@@ -50,6 +51,8 @@ export function NavigationView(props: NavigationViewProps) {
 								<Icon icon="fluent:home-16-regular" />
 								<span className={styles.leftTextButtonText}>Home</span>
 							</button>
+
+							<hr />
 
 							<button  className={`${styles.leftTextButton} ${sideBarOpened ? styles.leftTextButtonOpened : {}}`}>
 								<Icon icon="fluent:home-16-regular" />

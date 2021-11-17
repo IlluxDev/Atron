@@ -6,7 +6,7 @@ export function TextBox(props: TextBoxProps) {
 	return (
 		<div className={styles.root}>
 			<div className={styles.input}>
-				<input />
+				<input defaultValue={props.value} placeholder={props.placeholder} />
 			</div>
 		</div>
 	);

@@ -236,4 +236,12 @@
 .leftSideBarMain {
 	height: 100%;
 	overflow: auto;
+
+	& > hr {
+		width: 100%;
+		border: none;
+		height: 1px;
+		background: $navigationView_leftSideBarHrBackground;
+		margin-top: 2px;
+	}
 }

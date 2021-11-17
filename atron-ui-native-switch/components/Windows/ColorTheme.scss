@@ -28,6 +28,7 @@ $navigationView_contentAreaBackground: rgba(255, 255, 255, 0.05);
 $navigationView_titleBarTextColor: #fff;
 $navigationView_leftSideBarFloatingBackground: #1e1e1e;
 $navigationView_leftSideBarFloatingBorder: #383a39;
+$navigationView_leftSideBarHrBackground: #333;
 
 // Dialog
 $dialog_backdropBackground: rgba(0, 0, 0, 0.5);
@@ -45,6 +46,14 @@ $button_textColor: #fff;
 $button_hoverBackground: rgba(255, 255, 255, 0.08);
 $button_activeBackground: rgba(255, 255, 255, 0.02);
 $button_activeTextColor: #999;
+
+// TextBox
+$textBox_background: rgba(255, 255, 255, 0.06);
+$textBox_hoverBackground: rgba(255, 255, 255, 0.08);
+$textBox_borderNotBottomColor: rgba(255, 255, 255, 0.02);
+$textBox_borderBottomColor: #999;
+$textBox_inputTextColor: #fff;
+$textBox_focusBorderNotBottomColor: rgba(255, 255, 255, 0.1);
 
 // ------ | LIGHT | ------- //
 //
