@@ -4,7 +4,8 @@
 	color: $button_textColor;
 	background: $button_background;
 	font-size: 13px;
-	border: 1px solid $button_background;
+	border: 1px solid $button_borderNotBottomColor;
+	border-bottom-color: $button_borderBottomColor;
 	border-radius: 4px;
 	padding: 0 10px;
 	height: 30px;
@@ -17,6 +18,7 @@
 		&:active {
 			background: $button_activeBackground;
 			color: $button_activeTextColor;
+			border-bottom-color: $button_activeBorderBottomColor;
 		}
 	}
 }

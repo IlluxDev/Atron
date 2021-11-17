@@ -55,6 +55,8 @@ export class AtronElectron {
 	public extendElectronOptions(options?: BrowserWindowConstructorOptions): BrowserWindowConstructorOptions {
 		return deepmerge<BrowserWindowConstructorOptions>({
 			frame: true,
+			minHeight: 100,
+			minWidth: 320,
 			webPreferences: {
 				contextIsolation: false,
 				nodeIntegration: true

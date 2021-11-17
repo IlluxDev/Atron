@@ -17,13 +17,17 @@ export function NavigationView(props: NavigationViewProps) {
 			{ props.position != "top" ? <div className={styles.leftContainer}>
 				<div className={styles.largeTitleBar}>
 					<div className={`${styles.largeTitleBarCover} ${sideBarOpened ? styles.largeTitleBarCoverOpened : {}}`} />
+					<button onClick={() => sideBarOpened ? setSideBarOpenedState(false) : setSideBarOpenedState(true)} className={styles.largeTitleBarNavigationButton}>
+						<Icon icon="fluent:navigation-16-regular" />
+					</button>
+
 					<span>{props.title}</span>
 				</div>
 
 				<div className={styles.leftMainArea}>
 					<div className={`${styles.leftSideBar} ${sideBarOpened ? styles.leftSideBarOpened : {}}`}>
 						<div>
-							<button className={styles.leftButton} onClick={() => sideBarOpened ? setSideBarOpenedState(false) : setSideBarOpenedState(true)}>
+							<button className={`${styles.leftButton} ${styles.leftButtonNavigation}`} onClick={() => sideBarOpened ? setSideBarOpenedState(false) : setSideBarOpenedState(true)}>
 								<Icon icon="fluent:navigation-16-regular" />
 							</button>
 

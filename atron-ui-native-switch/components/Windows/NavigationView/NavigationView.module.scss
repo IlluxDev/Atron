@@ -22,6 +22,10 @@
 	}
 }
 
+.largeTitleBarNavigationButton {
+	-webkit-app-region: no-drag;
+}
+
 .largeTitleBarCover {
 	position: absolute;
 	top: 0;
@@ -62,6 +66,12 @@
 		width: calc(100% - 50px);
 		margin-left: 50px;
 	}
+
+	@media (max-width: 600px) {
+		width: 100%;
+		margin-left: 0;
+		border-radius: 0;
+	}
 }
 
 .leftContainer, .topContainer {
@@ -89,6 +99,40 @@
 
 	&:hover {
 		background: $navigationView_buttonHoverBackground;
+	}
+}
+
+.leftButtonNavigation {
+	@media (max-width: 600px) {
+		display: none;
+	}
+}
+
+.largeTitleBarNavigationButton {
+	overflow: hidden;
+	transition: 100ms;
+	width: 0;
+	height: 35px;
+	background: transparent;
+	color: $navigationView_buttonTextColor;
+	border: none;
+	border-radius: 4px;
+	font-size: 16px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 15px;
+
+	&:hover {
+		background: $navigationView_buttonHoverBackground;
+
+		&:active {
+			background: $navigationView_buttonActiveBackground;
+		}
+	}
+
+	@media (max-width: 600px) {
+		width: 40px;
 	}
 }
 
@@ -136,6 +180,10 @@
 		border-radius: 0 0 8px;
 	}
 
+	@media (max-width: 600px) {
+		transform: translate(-100%);
+	}
+
 	& > div {
 		display: flex;
 		flex-direction: column;
@@ -149,6 +197,10 @@
 		background: $navigationView_leftSideBarFloatingBackground;
 		border-right: 1px solid $navigationView_leftSideBarFloatingBorder;
 		border-bottom: 1px solid $navigationView_leftSideBarFloatingBorder;
+	}
+
+	@media (max-width: 600px) {
+		transform: translate(0);
 	}
 }
 
