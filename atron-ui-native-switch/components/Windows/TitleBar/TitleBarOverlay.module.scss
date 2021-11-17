@@ -33,6 +33,7 @@
 
 		&:nth-child(3) {
 			background: $titleBarOverlay_buttonCloseHoverBackground;
+			color: $titleBarOverlay_buttonCloseHoverTextColor;
 		}
 
 		&:active {
