@@ -1,5 +1,5 @@
 import deepmerge from "deepmerge";
-import { BrowserWindow, BrowserWindowConstructorOptions, dialog, ipcMain } from "electron"; 
+import { BrowserWindow, BrowserWindowConstructorOptions, ipcMain, systemPreferences } from "electron";
 
 export class AtronElectron {
 	private browserWindow?: BrowserWindow;
@@ -14,6 +14,20 @@ export class AtronElectron {
 
 			ipcMain.on("_atron:window:button:maximize", (event) => {
 				this.browserWindow?.maximize();
+			});
+
+			ipcMain.on("_atron:window:button:restore", (event) => {
+				this.browserWindow?.restore();
+			});
+
+			ipcMain.on("_atron:system:getAccentColor", () => {
+				this.browserWindow?.webContents.send("_atron:system:getAccentColor _reply", {
+					rgba: systemPreferences.getAccentColor()
+				});
+			});
+
+			systemPreferences.on("accent-color-changed", () => {
+				this.browserWindow?.webContents.send("_atron:system:accentColorUpdated", {});
 			});
 
 			this.browserWindow.on("maximize", () => {
@@ -41,6 +55,8 @@ export class AtronElectron {
 	public extendElectronOptions(options?: BrowserWindowConstructorOptions): BrowserWindowConstructorOptions {
 		return deepmerge<BrowserWindowConstructorOptions>({
 			frame: true,
+			minHeight: 100,
+			minWidth: 320,
 			webPreferences: {
 				contextIsolation: false,
 				nodeIntegration: true

@@ -1,0 +1,82 @@
+@import "../ColorTheme.scss";
+
+.root {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: 100ms;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.rootOpened {
+	transform: scale(1);
+	transition: 0ms;
+	opacity: 1;
+	pointer-events: all;
+}
+
+.backdrop {
+	background: $dialog_backdropBackground;
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: flex;
+}
+
+.window {
+	position: absolute;
+	background: $dialog_windowBackground;
+	max-width: 500px;
+	margin: 0 20px;
+	border-radius: 8px;
+	border: 3px solid $dialog_windowBackground;
+	transform: scale(1.05);
+	transition: transform 100ms;
+}
+
+.windowOpened {
+	transform: scale(1);
+	transition: 0ms;
+}
+
+.content {
+	padding: 20px;
+
+	h1 {
+		color: $dialog_windowTitleColor;
+		font-weight: 400;
+		margin: 10px 0;
+		font-size: 18px;
+	}
+
+	& > div {
+		max-height: 100px;
+		font-size: 13px;
+		overflow: auto;
+		font-weight: lighter;
+		color: $dialog_windowBodyColor;
+	}
+}
+
+.footer {
+	width: 100%;
+	height: 80px;
+	background: $dialog_windowFooterBackground;
+	border-radius: 0 0 4px 4px;
+	display: flex;
+	padding: 15px;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.footerButton {
+	margin: 5px;
+}

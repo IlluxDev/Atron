@@ -110,3 +110,4 @@ dist
 !rollup.config.js
 docs
 .resources
+!env.d.ts

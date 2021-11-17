@@ -1,4 +1,4 @@
-import { app, BrowserWindow, screen } from "electron";
+import { app, BrowserWindow, screen, systemPreferences, dialog } from "electron";
 import { AtronElectron } from "@illuxdev/atron-electron/AtronElectron";
 
 function createWindow() {
@@ -9,9 +9,10 @@ function createWindow() {
 	const window = new BrowserWindow(atron.extendElectronOptions({
 		width: displaySize.width - 180,
 		height: displaySize.height - 180,
-		show: false,
+		show: false
 	}));
 
+	// Set atron source
 	atron.setBrowserWindow(window);
 
 	const rendererLoaded = () => { 

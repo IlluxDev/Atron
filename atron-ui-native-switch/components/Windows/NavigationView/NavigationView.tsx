@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { NavigationViewProps } from "./NavigationViewProps";
 import styles from "./NavigationView.module.scss";
 import { Icon } from "@iconify/react";
+import { TextBox } from "../TextBox/TextBox";
 
 export function NavigationView(props: NavigationViewProps) {
-	const [sideBarOpened, setSideBarOpenedState] = useState(document.body.offsetWidth <= 1000 ? false : true);
+	const [sideBarOpened, setSideBarOpenedState] = useState(document.body.offsetWidth > 1000);
 	
 	return (
 		<div className={styles.root}>
@@ -16,14 +17,18 @@ export function NavigationView(props: NavigationViewProps) {
 
 			{ props.position != "top" ? <div className={styles.leftContainer}>
 				<div className={styles.largeTitleBar}>
-					<div className={`${styles.largeTitleBarCover} ${sideBarOpened ? styles.largeTitleBarCoverOpened : {}}`}></div>
+					<div className={`${styles.largeTitleBarCover} ${sideBarOpened ? styles.largeTitleBarCoverOpened : {}}`} />
+					<button onClick={() => sideBarOpened ? setSideBarOpenedState(false) : setSideBarOpenedState(true)} className={styles.largeTitleBarNavigationButton}>
+						<Icon icon="fluent:navigation-16-regular" />
+					</button>
+
 					<span>{props.title}</span>
 				</div>
 
 				<div className={styles.leftMainArea}>
 					<div className={`${styles.leftSideBar} ${sideBarOpened ? styles.leftSideBarOpened : {}}`}>
 						<div>
-							<button className={styles.leftButton} onClick={() => sideBarOpened ? setSideBarOpenedState(false) : setSideBarOpenedState(true)}>
+							<button className={`${styles.leftButton} ${styles.leftButtonNavigation}`} onClick={() => sideBarOpened ? setSideBarOpenedState(false) : setSideBarOpenedState(true)}>
 								<Icon icon="fluent:navigation-16-regular" />
 							</button>
 
@@ -32,7 +37,7 @@ export function NavigationView(props: NavigationViewProps) {
 							</button> : null }
 
 							{ sideBarOpened ? <div className={styles.leftSearchBar}>
-								<input />
+								<TextBox placeholder="Search Here" />
 							</div> : null }
 						</div>
 
@@ -46,6 +51,8 @@ export function NavigationView(props: NavigationViewProps) {
 								<Icon icon="fluent:home-16-regular" />
 								<span className={styles.leftTextButtonText}>Home</span>
 							</button>
+
+							<hr />
 
 							<button  className={`${styles.leftTextButton} ${sideBarOpened ? styles.leftTextButtonOpened : {}}`}>
 								<Icon icon="fluent:home-16-regular" />

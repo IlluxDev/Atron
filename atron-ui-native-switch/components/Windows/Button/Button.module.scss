@@ -1,4 +1,46 @@
+@import "../ColorTheme.scss";
+
 .root {
-	color-scheme: dark;
-	box-shadow: 0 0 5px #000;
+	color: $button_textColor;
+	background: $button_background;
+	font-size: 13px;
+	border: 1px solid $button_borderNotBottomColor;
+	border-bottom-color: $button_borderBottomColor;
+	border-radius: 4px;
+	padding: 0 10px;
+	height: 30px;
+	min-width: 80px;
+	transition: 100ms;
+
+	&:hover {
+		background: $button_hoverBackground;
+
+		&:active {
+			background: $button_activeBackground;
+			color: $button_activeTextColor;
+			border-bottom-color: $button_activeBorderBottomColor;
+		}
+	}
+}
+
+.fluid {
+	width: 100%;
+}
+
+.primary {
+	background: $_theme_accent;
+	color: $_theme_accentTextColor;
+	border: none;
+
+	&:hover {
+		background: $_theme_accent;
+		color: $_theme_accentTextColor;
+		filter: brightness($_theme_accentHoverBrightness);
+
+		&:active {
+			background: $_theme_accent;
+			color: $_theme_accentTextColor;
+			filter: brightness($_theme_accentActiveBrightness);
+		}
+	}
 }

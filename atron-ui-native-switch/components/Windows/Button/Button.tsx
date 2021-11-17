@@ -1,8 +1,9 @@
 import * as React from "react";
 import styles from "./Button.module.scss";
+import { ButtonProps } from "./ButtonProps";
 
-export function Button() {
+export function Button(props: ButtonProps) {
 	return (
-		<div className={styles.root}>Hello Button</div>
+		<button onClick={() => props.onClick ? props.onClick() : null} className={`${styles.root} ${props.fluid ? styles.fluid : {}} ${props.primary ? styles.primary : {}} ${props.className ?? {}}`} style={props.style}>{props.children}</button>
 	);
 }

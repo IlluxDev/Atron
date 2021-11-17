@@ -18,7 +18,12 @@
 		color: $navigationView_titleBarTextColor;
 		font-size: 12px;
 		user-select: none;
+		font-weight: lighter;
 	}
+}
+
+.largeTitleBarNavigationButton {
+	-webkit-app-region: no-drag;
 }
 
 .largeTitleBarCover {
@@ -58,8 +63,14 @@
 	background: $navigationView_contentAreaBackground;
 
 	@media (max-width: 1000px) {
-		width: calc(100% - 44px);
-		margin-left: 44px;
+		width: calc(100% - 50px);
+		margin-left: 50px;
+	}
+
+	@media (max-width: 600px) {
+		width: 100%;
+		margin-left: 0;
+		border-radius: 0;
 	}
 }
 
@@ -91,6 +102,40 @@
 	}
 }
 
+.leftButtonNavigation {
+	@media (max-width: 600px) {
+		display: none;
+	}
+}
+
+.largeTitleBarNavigationButton {
+	overflow: hidden;
+	transition: 100ms;
+	width: 0;
+	height: 35px;
+	background: transparent;
+	color: $navigationView_buttonTextColor;
+	border: none;
+	border-radius: 4px;
+	font-size: 16px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 15px;
+
+	&:hover {
+		background: $navigationView_buttonHoverBackground;
+
+		&:active {
+			background: $navigationView_buttonActiveBackground;
+		}
+	}
+
+	@media (max-width: 600px) {
+		width: 40px;
+	}
+}
+
 .leftTextButton {
 	width: 40px;
 	min-height: 35px;
@@ -101,7 +146,7 @@
 	background: transparent;
 	border-radius: 4px;
 	font-size: 16px;
-	margin: 0 5px 5px 5px;
+	margin: 0 0 5px 5px;
 	color: $navigationView_buttonTextColor;
 
 	&:hover {
@@ -135,6 +180,10 @@
 		border-radius: 0 0 8px;
 	}
 
+	@media (max-width: 600px) {
+		transform: translate(-100%);
+	}
+
 	& > div {
 		display: flex;
 		flex-direction: column;
@@ -148,6 +197,10 @@
 		background: $navigationView_leftSideBarFloatingBackground;
 		border-right: 1px solid $navigationView_leftSideBarFloatingBorder;
 		border-bottom: 1px solid $navigationView_leftSideBarFloatingBorder;
+	}
+
+	@media (max-width: 600px) {
+		transform: translate(0);
 	}
 }
 
@@ -183,4 +236,12 @@
 .leftSideBarMain {
 	height: 100%;
 	overflow: auto;
+
+	& > hr {
+		width: 100%;
+		border: none;
+		height: 1px;
+		background: $navigationView_leftSideBarHrBackground;
+		margin-top: 2px;
+	}
 }

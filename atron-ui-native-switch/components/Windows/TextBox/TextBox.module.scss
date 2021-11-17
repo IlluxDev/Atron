@@ -1,0 +1,35 @@
+@import "../ColorTheme";
+
+.root {
+	width: 100%;
+}
+
+.input {
+	border-radius: 4px;
+	position: relative;
+	width: 100%;
+	height: 28px;
+	background: $textBox_background;
+	border: 1px solid $textBox_borderNotBottomColor;
+	border-bottom-color: $textBox_borderBottomColor;
+
+	& > input {
+		width: 100%;
+		height: 100%;
+		background: transparent;
+		color: $textBox_inputTextColor;
+		border: none;
+		outline: none;
+		padding: 0 10px;
+	}
+
+	&:hover {
+		background: $textBox_hoverBackground;
+	}
+
+	&:focus-within {
+		border-color: $textBox_focusBorderNotBottomColor;
+		border-bottom-color: $_theme_accent;
+		background: transparent;
+	}
+}
