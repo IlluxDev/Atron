@@ -5,6 +5,6 @@ export interface ButtonProps {
 	onClick?: () => void;
 	fluid?: boolean;
 	primary?: boolean;
-	styles?: CSSProperties;
+	style?: CSSProperties;
 	className?: any;
 }

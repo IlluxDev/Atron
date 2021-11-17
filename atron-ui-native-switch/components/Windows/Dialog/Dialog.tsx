@@ -38,7 +38,7 @@ export function Dialog() {
         <div className={`${styles.root} ${isShown ? styles.rootOpened : {}}`}>
             <div className={styles.backdrop} />
 
-            <div className={styles.window}>
+            <div className={`${styles.window} ${isShown ? styles.windowOpened : {}}`}>
                 <div className={styles.content}>
                     <h1>{dialogData.title}</h1>
 

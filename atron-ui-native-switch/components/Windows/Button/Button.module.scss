@@ -28,4 +28,16 @@
 .primary {
 	background: $_theme_accent;
 	color: $_theme_accentTextColor;
+
+	&:hover {
+		background: $_theme_accent;
+		color: $_theme_accentTextColor;
+		filter: brightness($_theme_accentHoverBrightness);
+
+		&:active {
+			background: $_theme_accent;
+			color: $_theme_accentTextColor;
+			filter: brightness($_theme_accentActiveBrightness);
+		}
+	}
 }

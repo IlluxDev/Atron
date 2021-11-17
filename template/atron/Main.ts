@@ -1,4 +1,4 @@
-import { app, BrowserWindow, screen } from "electron";
+import { app, BrowserWindow, screen, systemPreferences, dialog } from "electron";
 import { AtronElectron } from "@illuxdev/atron-electron/AtronElectron";
 
 function createWindow() {
