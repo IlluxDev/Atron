@@ -3,6 +3,7 @@ import { NavigationViewProps } from "./NavigationViewProps";
 import styles from "./NavigationView.module.scss";
 import { Icon } from "@iconify/react";
 import { TextBox } from "../TextBox/TextBox";
+import { DropDownButton } from "./DropDownButton";
 
 export function NavigationView(props: NavigationViewProps) {
 	const [sideBarOpened, setSideBarOpenedState] = useState(document.body.offsetWidth > 1000);
@@ -63,6 +64,39 @@ export function NavigationView(props: NavigationViewProps) {
 								<Icon icon="fluent:home-16-regular" />
 								<span className={styles.leftTextButtonText}>Home</span>
 							</button>
+
+							<DropDownButton label={"Cats"} tree={[
+								{
+									label: "Kit Cat",
+									list: [
+										{
+											label: "Siblings",
+											list: [
+												{
+													label: "Jack"
+												},
+												{
+													label: "Joe"
+												}
+											]
+										}
+									]
+								},
+								{
+									label: "Mia",
+									list: [
+										{
+											label: "Siblings",
+											list: [
+												{
+													label: "Aron"
+												}
+											]
+										}
+									]
+								}
+							]} />
+							{/*<DropDownButton />*/}
 						</div>
 
 						<div>

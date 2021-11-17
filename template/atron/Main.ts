@@ -10,7 +10,7 @@ function createWindow() {
 		width: displaySize.width - 180,
 		height: displaySize.height - 180,
 		show: false
-	}));
+	})); 
 
 	// Set atron source
 	atron.setBrowserWindow(window);

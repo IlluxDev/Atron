@@ -1,0 +1,40 @@
+@import "../ColorTheme";
+
+.root {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.button {
+	display: flex;
+	transition: 1000ms;
+	justify-content: space-between;
+	margin: 0 5px 5px;
+	background: transparent;
+	color: $navigationView_buttonTextColor;
+	border: none;
+	height: 35px;
+	border-radius: 4px;
+	align-items: center;
+	padding-left: 12px;
+
+	span {
+		span:nth-child(1) {
+			font-size: 16px;
+		}
+
+		span:nth-child(2) {
+			margin-left: 5px;
+		}
+	}
+
+	&:hover {
+		transition: 0ms;
+		background: $navigationView_buttonHoverBackground;
+	}
+}
+
+.innerTree {
+	padding-left: 15px;
+}
