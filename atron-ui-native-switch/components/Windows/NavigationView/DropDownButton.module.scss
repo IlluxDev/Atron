@@ -8,7 +8,6 @@
 
 .button {
 	display: flex;
-	transition: 1000ms;
 	justify-content: space-between;
 	margin: 0 5px 5px;
 	background: transparent;
@@ -30,8 +29,19 @@
 	}
 
 	&:hover {
-		transition: 0ms;
 		background: $navigationView_buttonHoverBackground;
+	}
+}
+
+.buttonHideText {
+	span {
+		span:nth-child(2) {
+			display: none;
+		}
+	}
+
+	button {
+		display: none;
 	}
 }
 

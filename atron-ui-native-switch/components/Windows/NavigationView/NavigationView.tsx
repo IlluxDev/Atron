@@ -65,7 +65,7 @@ export function NavigationView(props: NavigationViewProps) {
 								<span className={styles.leftTextButtonText}>Home</span>
 							</button>
 
-							<DropDownButton label={"Cats"} tree={[
+							<DropDownButton displayFull={sideBarOpened} label={"Cats"} tree={[
 								{
 									label: "Kit Cat",
 									list: [

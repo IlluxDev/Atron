@@ -4,11 +4,9 @@ import { DropDownButtonProps } from "./DropDownButtonProps";
 import { Icon } from "@iconify/react";
 
 export function DropDownButton(props: DropDownButtonProps) {
-	const [displayFull, setDisplayFullState] = useState(true);
-
 	return (
-		<div className={`${styles.root} ${props.innerTree ? styles.innerTree : {}}`}>
-			<button className={styles.button}>
+		<div className={`${styles.root} ${props.innerTree && props.displayFull ? styles.innerTree : {}}`}>
+			<button className={`${styles.button} ${!props.displayFull ? styles.buttonHideText : {}}`}>
 				<span>
 					<span>
 						<Icon icon={"fluent:search-16-regular"} />
@@ -22,11 +20,11 @@ export function DropDownButton(props: DropDownButtonProps) {
 				</button>
 			</button>
 
-			<div className={styles.list}>
+			{props.displayFull ? <div className={styles.list}>
 				{props.tree?.map(item => {
-					return <DropDownButton innerTree={true} label={item.label} tree={item.list ?? []} />
+					return <DropDownButton displayFull={props.displayFull} innerTree={true} label={item.label} tree={item.list ?? []} />
 				})}
-			</div>
+			</div> : null}
 		</div>
 	)
 }

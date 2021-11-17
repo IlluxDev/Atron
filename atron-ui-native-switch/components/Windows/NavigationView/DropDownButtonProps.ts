@@ -4,4 +4,5 @@ export interface DropDownButtonProps {
 	label: string;
 	tree: DropDownButtonItem[];
 	innerTree?: boolean;
+	displayFull?: boolean;
 }
