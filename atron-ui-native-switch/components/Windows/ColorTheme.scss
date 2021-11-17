@@ -1,5 +1,6 @@
 // Theme
 $_theme_accent: #50ffab;
+$_theme_accentTextColor: #121212;
 
 // TitleBar
 $titleBar_titleColor: #fff;
@@ -32,6 +33,13 @@ $dialog_windowBackground: #202020;
 $dialog_windowFooterBackground: #191919;
 $dialog_windowTitleColor: #fff;
 $dialog_windowBodyColor: #d5d5d5;
+
+// Button
+$button_background: rgba(255, 255, 255, 0.05);
+$button_textColor: #fff;
+$button_hoverBackground: rgba(255, 255, 255, 0.08);
+$button_activeBackground: rgba(255, 255, 255, 0.02);
+$button_activeTextColor: #999;
 
 ::-webkit-scrollbar {
 	width: 3px;

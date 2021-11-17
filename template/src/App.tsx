@@ -7,7 +7,7 @@ function App() {
 		<RootLayout>
 			<NavigationView title="My App">
 				<h1>Hello App</h1>
-				<button onClick={() => dialog.show("Text", "Body text")}>Show Dialog</button>
+				<Button onClick={() => dialog.show("No WiFi connection", "A WiFi connection isA WiFi connection is required to use this app required to use this app")}>Show Dialog</Button>
 			</NavigationView>
 		</RootLayout>
 		<TitleBarOverlay />

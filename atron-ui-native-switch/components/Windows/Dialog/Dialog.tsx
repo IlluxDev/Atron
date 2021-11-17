@@ -2,6 +2,7 @@ import React from "react";
 import {useState} from "react";
 import { DialogManager } from "./DialogManager";
 import styles from "./Dialog.module.scss";
+import { Button } from "../Button/Button";
 
 let onOpenEvent = (title: string, body: string) => {};
 let onCloseEvent = () => {};
@@ -39,16 +40,16 @@ export function Dialog() {
 
             <div className={styles.window}>
                 <div className={styles.content}>
-                    <h1>Modal Dialog</h1>
+                    <h1>{dialogData.title}</h1>
 
                     <div>
-                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, provident.</span>
+                        <span>{dialogData.body}</span>
                     </div>
                 </div>
 
                 <div className={styles.footer}>
-                    <button>Save</button>
-                    <button onClick={() => dialogManager.close()}>Cancel</button>
+                    <Button className={styles.footerButton} fluid primary>Try Again</Button>
+                    <Button className={styles.footerButton} fluid onClick={() => dialogManager.close()}>Close</Button>
                 </div>
             </div>
         </div>

@@ -35,7 +35,8 @@
 .window {
 	position: absolute;
 	background: $dialog_windowBackground;
-	max-width: 400px;
+	max-width: 500px;
+	margin: 0 20px;
 	border-radius: 8px;
 	border: 3px solid $dialog_windowBackground;
 }
@@ -64,4 +65,12 @@
 	height: 80px;
 	background: $dialog_windowFooterBackground;
 	border-radius: 0 0 4px 4px;
+	display: flex;
+	padding: 15px;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.footerButton {
+	margin: 5px;
 }
