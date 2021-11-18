@@ -8,7 +8,7 @@ export function DropDownButton(props: DropDownButtonProps) {
 
 	return (
 		<div className={`${styles.root} ${props.innerTree && props.displayFull ? styles.innerTree : {}}`}>
-			<button className={`${styles.button} ${!props.displayFull ? styles.buttonHideText : {}}`}>
+			<button onClick={() => isOpen ? setIsOpenState(false) : setIsOpenState(true)} className={`${styles.button} ${!props.displayFull ? styles.buttonHideText : {}}`}>
 				<span>
 					<span>
 						<Icon icon={"fluent:search-16-regular"} />
@@ -18,7 +18,9 @@ export function DropDownButton(props: DropDownButtonProps) {
 				</span>
 
 				{props.tree.length != 0 ? <div onClick={() => isOpen ? setIsOpenState(false) : setIsOpenState(true)}>
-					<Icon icon={"fluent:chevron-down-16-regular"} />
+						{ isOpen
+							? <Icon icon={"fluent:chevron-up-16-regular"} />
+							: <Icon icon={"fluent:chevron-down-16-regular"} /> }
 				</div> : null }
 			</button>
 

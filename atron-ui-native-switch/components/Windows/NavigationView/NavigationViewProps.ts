@@ -3,4 +3,8 @@ export interface NavigationViewProps {
 	navigationContent?: any;
 	position?: "left" | "top";
 	title: string;
+	routes?: {
+		element: any;
+		path: string;
+	}[];
 }
