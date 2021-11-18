@@ -5,4 +5,6 @@ export interface DropDownButtonProps {
 	tree?: DropDownButtonItem[];
 	innerTree?: boolean;
 	displayFull?: boolean;
+	icon?: string;
+	location: string;
 }

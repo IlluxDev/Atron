@@ -18,6 +18,25 @@
 	align-items: center;
 	padding-left: 12px;
 	flex-direction: row;
+	position: relative;
+
+	&:after {
+		left: 0;
+		content: "";
+		width: 3px;
+		height: 50%;
+		border-radius: 8px;
+		transition: 100ms;
+		position: absolute;
+	}
+
+	&:focus {
+		background: $navigationView_buttonEnabledBackground;
+
+		&:after {
+			background: $_theme_accent;
+		}
+	}
 
 	span {
 		display: flex;

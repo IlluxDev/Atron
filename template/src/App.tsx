@@ -16,16 +16,23 @@ function App() {
 				}
 			]} title="My App" links={[
 				{
-					label: "Home"
+					label: "Home",
+					icon: "ic:sharp-add-circle-outline",
+					location: "/"
 				},
 				{
 					label: "Tests",
+					icon: "simple-icons:speedtest",
+					location: "/tests",
 					tree: [
 						{
-							label: "Button"
+							label: "Button",
+							icon: "akar-icons:cursor",
+							location: "/tests/button"
 						},
 						{
-							label: "TextBox"
+							label: "TextBox",
+							location: "/tests/text-box"
 						}
 					]
 				}
