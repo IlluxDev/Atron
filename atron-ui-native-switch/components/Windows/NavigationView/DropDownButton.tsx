@@ -1,12 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./DropDownButton.module.scss";
 import { DropDownButtonProps } from "./DropDownButtonProps";
 import { Icon } from "@iconify/react";
-import { useNavigate } from "react-router-dom";
+import { matchPath, useLocation, useNavigate } from "react-router-dom";
+import { } from "react-router";
 
 export function DropDownButton(props: DropDownButtonProps) {
 	const [isOpen, setIsOpenState] = useState(false);
 	const navigate = useNavigate();
+	const location = useLocation();
+	const [isRouterMatched, setIsRouterMatchedState] = useState(false);
+
+	useEffect(() => {
+		const matchedPath = matchPath(location.pathname, props.location);
+		if (matchedPath != null) {
+			setIsRouterMatchedState(true);
+			return;
+		}
+
+		setIsRouterMatchedState(false);
+	}, [location]);
 
 	return (
 		<div className={`${styles.root} ${props.innerTree && props.displayFull ? styles.innerTree : {}}`}>
@@ -19,7 +32,7 @@ export function DropDownButton(props: DropDownButtonProps) {
 						<Icon fr icon={props.icon ?? "fluent:search-16-regular"} />
 					</span>
 
-					<span>{props.label}</span>
+					<span>{props.label}{isRouterMatched ? "true" : "false"}</span>
 				</span>
 
 				{(props.tree ?? []).length != 0 ? <div onClick={() => isOpen ? setIsOpenState(false) : setIsOpenState(true)}>
