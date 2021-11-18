@@ -36,7 +36,7 @@ export function NavigationView(props: NavigationViewProps) {
 							<div>
 								<button className={`${styles.leftButton} ${styles.leftButtonNavigation}`}
 										onClick={() => sideBarOpened ? setSideBarOpenedState(false) : setSideBarOpenedState(true)}>
-									<Icon icon="fluent:navigation-16-regular"/>
+									<Icon fr icon="fluent:navigation-16-regular"/>
 								</button>
 
 								{!sideBarOpened ?
@@ -50,70 +50,15 @@ export function NavigationView(props: NavigationViewProps) {
 							</div>
 
 							<div className={styles.leftSideBarMain}>
-								<button
-									className={`${styles.leftTextButton} ${sideBarOpened ? styles.leftTextButtonOpened : {}}`}>
-									<Icon icon="fluent:home-16-regular"/>
-									<span className={styles.leftTextButtonText}>Home</span>
-								</button>
-
-								<button
-									className={`${styles.leftTextButton} ${sideBarOpened ? styles.leftTextButtonOpened : {}}`}>
-									<Icon icon="fluent:home-16-regular"/>
-									<span className={styles.leftTextButtonText}>Home</span>
-								</button>
-
-								<hr/>
-
-								<button
-									className={`${styles.leftTextButton} ${sideBarOpened ? styles.leftTextButtonOpened : {}}`}>
-									<Icon icon="fluent:home-16-regular"/>
-									<span className={styles.leftTextButtonText}>Home</span>
-								</button>
-
-								<button
-									className={`${styles.leftTextButton} ${sideBarOpened ? styles.leftTextButtonOpened : {}}`}>
-									<Icon icon="fluent:home-16-regular"/>
-									<span className={styles.leftTextButtonText}>Home</span>
-								</button>
-
-								<DropDownButton displayFull={sideBarOpened} label={"Cats"} tree={[
-									{
-										label: "Kit Cat",
-										list: [
-											{
-												label: "Siblings",
-												list: [
-													{
-														label: "Jack"
-													},
-													{
-														label: "Joe"
-													}
-												]
-											}
-										]
-									},
-									{
-										label: "Mia",
-										list: [
-											{
-												label: "Siblings",
-												list: [
-													{
-														label: "Aron"
-													}
-												]
-											}
-										]
-									}
-								]}/>
-								{/*<DropDownButton />*/}
+								{(props.links ?? []).map(link => {
+									return <DropDownButton displayFull={sideBarOpened} {...link} />
+								})}
 							</div>
 
 							<div>
 								<button
 									className={`${styles.leftTextButton} ${sideBarOpened ? styles.leftTextButtonOpened : {}}`}>
-									<Icon icon="fluent:settings-16-regular"/>
+									<Icon fr icon="fluent:settings-16-regular"/>
 									<span className={styles.leftTextButtonText}>Settings</span>
 								</button>
 							</div>

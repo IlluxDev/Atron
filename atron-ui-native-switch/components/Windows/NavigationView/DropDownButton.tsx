@@ -17,10 +17,10 @@ export function DropDownButton(props: DropDownButtonProps) {
 					<span>{props.label}</span>
 				</span>
 
-				{props.tree.length != 0 ? <div onClick={() => isOpen ? setIsOpenState(false) : setIsOpenState(true)}>
+				{(props.tree ?? []).length != 0 ? <div onClick={() => isOpen ? setIsOpenState(false) : setIsOpenState(true)}>
 						{ isOpen
-							? <Icon icon={"fluent:chevron-up-16-regular"} />
-							: <Icon icon={"fluent:chevron-down-16-regular"} /> }
+							? <Icon fr icon={"fluent:chevron-up-16-regular"} />
+							: <Icon fr icon={"fluent:chevron-down-16-regular"} /> }
 				</div> : null }
 			</button>
 

@@ -1,3 +1,5 @@
+import { DropDownButtonProps } from "./DropDownButtonProps";
+
 export interface NavigationViewProps {
 	children?: any;
 	navigationContent?: any;
@@ -7,4 +9,5 @@ export interface NavigationViewProps {
 		element: any;
 		path: string;
 	}[];
+	links?: DropDownButtonProps[];
 }
