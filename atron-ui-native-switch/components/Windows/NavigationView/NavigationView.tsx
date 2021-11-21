@@ -6,8 +6,23 @@ import { TextBox } from "../TextBox/TextBox";
 import { DropDownButton } from "./DropDownButton";
 import { HashRouter, Route, Routes } from "react-router-dom";
 
+let onWindowResize = () => {};
+new ResizeObserver(() => {
+	onWindowResize();
+}).observe(document.body);
+
 export function NavigationView(props: NavigationViewProps) {
 	const [sideBarOpened, setSideBarOpenedState] = useState(document.body.offsetWidth > 1000);
+
+	function handleBodyClick() {
+		if (window.innerWidth < 1000) {
+			setSideBarOpenedState(false);
+		}
+	}
+
+	onWindowResize = () => {
+		setSideBarOpenedState(false);
+	}
 
 	return (
 		<div className={styles.root}>
@@ -51,7 +66,7 @@ export function NavigationView(props: NavigationViewProps) {
 
 							<div className={styles.leftSideBarMain}>
 								{(props.links ?? []).map(link => {
-									return <DropDownButton displayFull={sideBarOpened} {...link} />
+									return <DropDownButton onCloseList={() => setSideBarOpenedState(false)} displayFull={sideBarOpened} {...link} />
 								})}
 							</div>
 
@@ -65,6 +80,7 @@ export function NavigationView(props: NavigationViewProps) {
 						</div>
 
 						<div
+							onClick={() => handleBodyClick()}
 							className={`${styles.leftContentArea} ${sideBarOpened ? styles.leftContentAreaSideBarOpened : {}}`}>
 							<Routes>
 								{(props.routes ?? []).map(route => {

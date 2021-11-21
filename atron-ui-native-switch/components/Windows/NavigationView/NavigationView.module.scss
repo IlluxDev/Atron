@@ -169,6 +169,7 @@
 
 .leftSideBar {
 	width: 50px;
+	min-width: 50px;
 	transition: 300ms;
 	display: flex;
 	flex-direction: column;
@@ -192,6 +193,7 @@
 
 .leftSideBarOpened {
 	width: 320px;
+	min-width: 320px;
 	
 	@media (max-width: 1000px) {
 		background: $navigationView_leftSideBarFloatingBackground;

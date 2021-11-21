@@ -8,7 +8,9 @@ function App() {
 			<NavigationView routes={[
 				{
 					path: "/",
-					element: <p>Hello</p>
+					element: <p>
+						<Button onClick={() => dialog.show("A Test Dialog", "Hello world, this is a test dialog containing this message")}>Show A Dialog</Button>
+					</p>
 				},
 				{
 					path: "/test",

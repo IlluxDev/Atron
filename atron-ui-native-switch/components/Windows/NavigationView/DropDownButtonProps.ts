@@ -7,4 +7,5 @@ export interface DropDownButtonProps {
 	displayFull?: boolean;
 	icon?: string;
 	location: string;
+	onCloseList?: () => void;
 }

@@ -21,18 +21,26 @@ export function DropDownButton(props: DropDownButtonProps) {
 		setIsRouterMatchedState(false);
 	}, [location]);
 
+	const handleClick = () => {
+		isOpen ? setIsOpenState(false) : setIsOpenState(true);
+		navigate(props.location);
+
+		console.log(props);
+
+		if (props.tree?.length == 0 && window.innerWidth < 1000) {
+			props.onCloseList ? props.onCloseList() : null;
+		}
+	}
+
 	return (
 		<div className={`${styles.root} ${props.innerTree && props.displayFull ? styles.innerTree : {}}`}>
-			<button onClick={() => {
-				isOpen ? setIsOpenState(false) : setIsOpenState(true);
-				navigate(props.location);
-			}} className={`${styles.button} ${!props.displayFull ? styles.buttonHideText : {}}`}>
+			<button onClick={() => handleClick()} className={`${styles.button} ${!props.displayFull ? styles.buttonHideText : {}} ${isRouterMatched ? styles.buttonRouteMatched : {}}`}>
 				<span>
 					<span>
 						<Icon fr icon={props.icon ?? "fluent:search-16-regular"} />
 					</span>
 
-					<span>{props.label}{isRouterMatched ? "true" : "false"}</span>
+					<span>{props.label}</span>
 				</span>
 
 				{(props.tree ?? []).length != 0 ? <div onClick={() => isOpen ? setIsOpenState(false) : setIsOpenState(true)}>
@@ -44,7 +52,7 @@ export function DropDownButton(props: DropDownButtonProps) {
 
 			{props.displayFull ? <div className={`${styles.dropDown} ${!isOpen ? styles.dropDownClosed : {}}`}>
 				{props.tree?.map(item => {
-					return <DropDownButton location={item.location} displayFull={props.displayFull} innerTree={true} label={item.label} tree={item.list ?? []} icon={item.icon} />
+					return <DropDownButton onCloseList={() => props.onCloseList ? props.onCloseList() : null} location={item.location} displayFull={props.displayFull} innerTree={true} label={item.label} tree={item.list ?? []} icon={item.icon} />
 				})}
 			</div> : null}
 		</div>

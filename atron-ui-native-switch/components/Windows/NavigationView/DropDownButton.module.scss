@@ -30,14 +30,6 @@
 		position: absolute;
 	}
 
-	&:focus {
-		background: $navigationView_buttonEnabledBackground;
-
-		&:after {
-			background: $_theme_accent;
-		}
-	}
-
 	span {
 		display: flex;
 		flex-direction: row;
@@ -71,6 +63,14 @@
 
 	&:hover {
 		background: $navigationView_buttonHoverBackground;
+	}
+}
+
+.buttonRouteMatched {
+	background: $navigationView_buttonEnabledBackground;
+
+	&:after {
+		background: $_theme_accent;
 	}
 }
 
