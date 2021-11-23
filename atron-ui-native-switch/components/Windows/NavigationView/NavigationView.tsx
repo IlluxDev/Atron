@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavigationViewProps } from "./NavigationViewProps";
+import { NavigationViewProps } from "../../Shared/NavigationView/NavigationViewProps";
 import styles from "./NavigationView.module.scss";
 import { Icon } from "@iconify/react";
 import { TextBox } from "../TextBox/TextBox";
@@ -13,6 +13,10 @@ new ResizeObserver(() => {
 
 export function NavigationView(props: NavigationViewProps) {
 	const [sideBarOpened, setSideBarOpenedState] = useState(document.body.offsetWidth > 1000);
+
+	if (window.innerWidth >= 1000 && localStorage.getItem("")) {
+
+	}
 
 	function handleBodyClick() {
 		if (window.innerWidth < 1000) {

@@ -1,4 +1,4 @@
-import { DropDownButtonItem } from "./DropDownButtonItem";
+import { DropDownButtonItem } from "../../Windows/NavigationView/DropDownButtonItem";
 
 export interface DropDownButtonProps {
 	label: string;

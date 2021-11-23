@@ -1,7 +1,8 @@
 import { app, BrowserWindow, screen, systemPreferences, dialog } from "electron";
 import { AtronElectron } from "@illuxdev/atron-electron/AtronElectron";
+import * as path from "path";
 
-function createWindow() {
+function createElectron() {
 	let displaySize = screen.getPrimaryDisplay().workAreaSize;
 
 	const atron = new AtronElectron();
@@ -30,8 +31,81 @@ function createWindow() {
 		app.exit();
 	});
 
-	window.loadURL("http://localhost:3000");
-	window.webContents.on("did-finish-load", () => rendererLoaded());
+	const loadingPreWindow = new BrowserWindow({
+		width: 300,
+		height: 350,
+		titleBarStyle: "hidden",
+		show: false,
+		resizable: false
+	});
+
+	const loadingView = "data:text/html;charset=UTF-8," + encodeURIComponent("<!DOCTYPE html>\n" +
+		"<html lang=\"en\">\n" +
+		"<head>\n" +
+		"    <meta charset=\"UTF-8\">\n" +
+		"    <title>Loading</title>\n" +
+		"\n" +
+		"    <style>\n" +
+		"        .loader {\n" +
+		"            width: 100vw;\n" +
+		"            height: 100vh;\n" +
+		"            background: #181818;\n" +
+		"            display: flex;\n" +
+		"            align-items: center;\n" +
+		"            justify-content: center;\n" +
+		"            flex-direction: column;\n" +
+		"        }\n" +
+		"\n" +
+		"        h1 {\n" +
+		"            color: #fff;\n" +
+		"            font-family: \"Segoe UI\", sans-serif;\n" +
+		"            letter-spacing: 4px;\n" +
+		"            font-weight: 400;\n" +
+		"        }\n" +
+		"\n" +
+		"        .spinner {\n" +
+		"            width: 20vw;\n" +
+		"            padding-top: 20%;\n" +
+		"            border-radius: 100%;\n" +
+		"            border: 4px solid #151515;\n" +
+		"            border-top-color: #fff;\n" +
+		"            animation-name: spin;\n" +
+		"            animation-timing-function: cubic-bezier(.52,.31,.18,.91);\n" +
+		"            animation-duration: 1s;\n" +
+		"            animation-iteration-count: infinite;\n" +
+		"        }\n" +
+		"\n" +
+		"        @keyframes spin {\n" +
+		"            from {\n" +
+		"                transform: rotate(0deg);\n" +
+		"            }\n" +
+		"\n" +
+		"            to {\n" +
+		"                transform: rotate(1080deg);\n" +
+		"            }\n" +
+		"        }\n" +
+		"\n" +
+		"        body {\n" +
+		"            margin: 0;\n" +
+		"        }\n" +
+		"    </style>\n" +
+		"</head>\n" +
+		"<body>\n" +
+		"    <div class=\"loader\">\n" +
+		"<!--        <h1>Atron</h1>-->\n" +
+		"        <div class=\"spinner\"></div>\n" +
+		"    </div>\n" +
+		"</body>\n" +
+		"</html>")
+
+	loadingPreWindow.loadURL(loadingView).then(() => {
+		loadingPreWindow.show();
+
+		window.loadURL("http://localhost:3000").then(() => {
+			loadingPreWindow.hide();
+			rendererLoaded();
+		});
+	});
 }
 
-app.on("ready", () => createWindow());
+app.on("ready", () => createElectron());

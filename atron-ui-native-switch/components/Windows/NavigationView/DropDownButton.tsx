@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styles from "./DropDownButton.module.scss";
-import { DropDownButtonProps } from "./DropDownButtonProps";
+import { DropDownButtonProps } from "../../Shared/NavigationView/DropDownButtonProps";
 import { Icon } from "@iconify/react";
 import { matchPath, useLocation, useNavigate } from "react-router-dom";
-import { } from "react-router";
 
 export function DropDownButton(props: DropDownButtonProps) {
 	const [isOpen, setIsOpenState] = useState(false);
@@ -24,8 +23,6 @@ export function DropDownButton(props: DropDownButtonProps) {
 	const handleClick = () => {
 		isOpen ? setIsOpenState(false) : setIsOpenState(true);
 		navigate(props.location);
-
-		console.log(props);
 
 		if (props.tree?.length == 0 && window.innerWidth < 1000) {
 			props.onCloseList ? props.onCloseList() : null;

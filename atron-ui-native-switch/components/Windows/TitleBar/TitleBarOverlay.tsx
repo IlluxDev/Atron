@@ -39,19 +39,19 @@ export function TitleBarOverlay() {
 	return (
 		<div className={styles.root}>
 			<button onClick={() => minimizeWindow()} className={styles.button}>
-				<Icon icon="fluent:minimize-16-regular" />
+				<Icon fr icon="fluent:minimize-16-regular" />
 			</button>
 
 			{ !isMaximized ? <button onClick={() => maximizeWindow()} className={styles.button}>
-				<Icon icon="fluent:maximize-16-regular" />
+				<Icon fr icon="fluent:maximize-16-regular" />
 			</button> : null }
 
 			{ isMaximized ? <button onClick={() => restoreWindow()} className={styles.button}>
-				<Icon icon="fluent:restore-16-regular" />
+				<Icon fr icon="fluent:restore-16-regular" />
 			</button> : null }
 
 			<button onClick={() => closeWindow()} className={styles.button}>
-				<Icon icon="fluent:dismiss-16-regular" />
+				<Icon fr icon="fluent:dismiss-16-regular" />
 			</button>
 		</div>
 	);

@@ -1,6 +1,6 @@
 import * as React from "react";
 import styles from "./Button.module.scss";
-import { ButtonProps } from "./ButtonProps";
+import { ButtonProps } from "../../Shared/Button/ButtonProps";
 
 export function Button(props: ButtonProps) {
 	return (
