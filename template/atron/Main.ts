@@ -40,9 +40,9 @@ function createElectron() {
 	});
 
 	const loadingView = "data:text/html;charset=UTF-8," + encodeURIComponent("<!DOCTYPE html>\n" +
-		"<html lang=\"en\">\n" +
+		"<html lang='en'>\n" +
 		"<head>\n" +
-		"    <meta charset=\"UTF-8\">\n" +
+		"    <meta charset='UTF-8'>\n" +
 		"    <title>Loading</title>\n" +
 		"\n" +
 		"    <style>\n" +
@@ -58,7 +58,7 @@ function createElectron() {
 		"\n" +
 		"        h1 {\n" +
 		"            color: #fff;\n" +
-		"            font-family: \"Segoe UI\", sans-serif;\n" +
+		"            font-family: 'Segoe UI', sans-serif;\n" +
 		"            letter-spacing: 4px;\n" +
 		"            font-weight: 400;\n" +
 		"        }\n" +
@@ -88,15 +88,58 @@ function createElectron() {
 		"        body {\n" +
 		"            margin: 0;\n" +
 		"        }\n" +
+		"      \n" +
+		"      .dots {\n" +
+		"        display: flex;\n" +
+		"        gap: 5px;\n" +
+		"      }\n" +
+		"      \n" +
+		"      .dots div {\n" +
+		"        width: 10px;\n" +
+		"        height: 10px;\n" +
+		"        display: flex;\n" +
+		"        background: #555;\n" +
+		"        border-radius: 100%;\n" +
+		"        animation-name: dots;\n" +
+		"        animation-duration: 1s;\n" +
+		"        animation-iteration-count: infinite;\n" +
+		"        align-items: center;\n" +
+		"      }\n" +
+		"      \n" +
+		"      .dots div:nth-child(2) {\n" +
+		"        animation-delay: 0.2s;\n" +
+		"      }\n" +
+		"      \n" +
+		"      .dots div:nth-child(3) {\n" +
+		"        animation-delay: 0.3s;\n" +
+		"      }\n" +
+		"      \n" +
+		"      @keyframes dots {\n" +
+		"        0% {\n" +
+		"          background: #555;\n" +
+		"        }\n" +
+		"        \n" +
+		"        50% {\n" +
+		"          background: #50ffab;\n" +
+		"        }\n" +
+		"        \n" +
+		"        100% {\n" +
+		"          background: #555;\n" +
+		"        } \n" +
+		"      }\n" +
 		"    </style>\n" +
 		"</head>\n" +
 		"<body>\n" +
-		"    <div class=\"loader\">\n" +
-		"<!--        <h1>Atron</h1>-->\n" +
-		"        <div class=\"spinner\"></div>\n" +
+		"    <div class='loader'>\n" +
+		"<!--         <div class='spinner'></div> -->\n" +
+		"        <div class=\"dots\">\n" +
+		"          <div></div>\n" +
+		"          <div></div>\n" +
+		"          <div></div>\n" +
+		"        </div>\n" +
 		"    </div>\n" +
 		"</body>\n" +
-		"</html>")
+		"</html>");
 
 	loadingPreWindow.loadURL(loadingView).then(() => {
 		loadingPreWindow.show();

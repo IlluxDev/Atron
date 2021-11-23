@@ -1,3 +1,4 @@
+import { ipc } from "../../atron-ui-native-switch/electron/Ipc";
 import { Button, dialog, NavigationView, RootLayout, TitleBarOverlay } from "../../atron-ui-native-switch/Plugin";
 import './App.css'
 
@@ -10,6 +11,9 @@ function App() {
 					path: "/",
 					element: <p>
 						<Button onClick={() => dialog.show("A Test Dialog", "Hello world, this is a test dialog containing this message")}>Show A Dialog</Button>
+						<Button onClick={() => {
+							ipc.send("_atron:app:restart", {});
+						}}>Restart</Button>
 					</p>
 				},
 				{

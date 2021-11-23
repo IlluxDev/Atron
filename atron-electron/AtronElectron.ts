@@ -1,5 +1,5 @@
 import deepmerge from "deepmerge";
-import { BrowserWindow, BrowserWindowConstructorOptions, ipcMain, systemPreferences } from "electron";
+import { BrowserWindow, BrowserWindowConstructorOptions, ipcMain, systemPreferences, app } from "electron";
 
 export class AtronElectron {
 	private browserWindow?: BrowserWindow;
@@ -45,6 +45,11 @@ export class AtronElectron {
 				}
 
 				browserWindow.webContents.send("_atron:window:unMaximized _event");
+			});
+
+			ipcMain.on("_atron:app:restart", () => {
+				app.relaunch();
+				app.exit();
 			});
 			return;
 		}
