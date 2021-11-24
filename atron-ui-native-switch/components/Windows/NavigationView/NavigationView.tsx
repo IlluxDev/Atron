@@ -21,7 +21,9 @@ export function NavigationView(props: NavigationViewProps) {
 	}
 
 	onWindowResize = () => {
-		setSideBarOpenedState(false);
+		if (window.innerWidth < 1000) {
+			setSideBarOpenedState(false);
+		}
 	}
 
 	return (
