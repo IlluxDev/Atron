@@ -1,11 +1,12 @@
 import { app, BrowserWindow, screen, systemPreferences, dialog } from "electron";
 import { AtronElectron } from "@illuxdev/atron-electron/AtronElectron";
-import * as path from "path";
 
 function createElectron() {
 	let displaySize = screen.getPrimaryDisplay().workAreaSize;
 
-	const atron = new AtronElectron();
+	const atron = new AtronElectron({
+		dirname: __dirname
+	});
 
 	const window = new BrowserWindow(atron.extendElectronOptions({
 		width: displaySize.width - 180,

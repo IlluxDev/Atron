@@ -1,14 +1,17 @@
 import deepmerge from "deepmerge";
 import { BrowserWindow, BrowserWindowConstructorOptions, ipcMain, systemPreferences, app } from "electron";
 import { AtronElectronOptions } from "./AtronElectronOptions";
+import isDev from "electron-is-dev";
+import path from "path";
 
 export class AtronElectron {
 	private browserWindow?: BrowserWindow;
 	private settings: AtronElectronOptions;
 
-	public constructor(options: AtronElectronOptions = {}) {
+	public constructor(options: AtronElectronOptions) {
 		this.settings = deepmerge<AtronElectronOptions>({
-			title: "Atron Application"
+			title: "Atron Application",
+			projectRoot: __dirname
 		}, options);
 	}
 
@@ -114,7 +117,7 @@ export class AtronElectron {
 			"<html lang='en'>\n" +
 			"<head>\n" +
 			"    <meta charset='UTF-8'>\n" +
-			"    <title>\" + \"\" + \"</title>\n" +
+			"    <title>" + window.getTitle() + "</title>\n" +
 			"\n" +
 			"    <style>\n" +
 			"      :root {\n" +
@@ -229,7 +232,11 @@ export class AtronElectron {
 		loadingPreWindow.loadURL(loadingView).then(() => {
 			loadingPreWindow.show();
 
-			window.loadURL("http://localhost:3000").then(() => null);
+			if (isDev) {
+				window.loadURL("http://localhost:3000").then(() => null);
+			} else {
+				window.loadFile(path.join(this.settings.projectRoot, "./build/renderer/index.html")).then(() => null);
+			}
 
 			window.webContents.on('did-finish-load', () => {
 				loadingPreWindow.hide();
