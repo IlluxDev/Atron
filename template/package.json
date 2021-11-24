@@ -9,7 +9,8 @@
 	"build": {
 		"files": [
 			"build/**/*",
-			".atron/**/*"
+			".atron/**/*",
+			"../atron-electron/**/*"
 		]
 	},
 	"author": "Illux",

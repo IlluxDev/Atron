@@ -5,7 +5,7 @@ function createElectron() {
 	let displaySize = screen.getPrimaryDisplay().workAreaSize;
 
 	const atron = new AtronElectron({
-		dirname: __dirname
+		projectRoot: __dirname
 	});
 
 	const window = new BrowserWindow(atron.extendElectronOptions({

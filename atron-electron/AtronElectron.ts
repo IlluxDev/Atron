@@ -235,7 +235,7 @@ export class AtronElectron {
 			if (isDev) {
 				window.loadURL("http://localhost:3000").then(() => null);
 			} else {
-				window.loadFile(path.join(this.settings.projectRoot, "./build/renderer/index.html")).then(() => null);
+				window.loadFile(path.join(this.settings.projectRoot, "../build/renderer/index.html")).then(() => null);
 			}
 
 			window.webContents.on('did-finish-load', () => {
