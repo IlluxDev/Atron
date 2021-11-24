@@ -87,12 +87,13 @@
 .leftButton {
 	border: none;
 	border-radius: 4px;
-	margin-left: 4px;
+	margin-left: 5px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	width: 40px;
 	height: 35px;
+	margin-bottom: 5px;
 	background: transparent;
 	color: $navigationView_buttonTextColor;
 	font-size: 16px;
