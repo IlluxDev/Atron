@@ -1,5 +1,5 @@
 // Theme
-$_theme_accent: #44d6ff;
+$_theme_accent: #50ffab;
 $_theme_accentTextColor: #121212;
 $_theme_accentHoverBrightness: 1.1;
 $_theme_accentActiveBrightness: 0.9;
@@ -24,6 +24,7 @@ $navigationView_titleBarTitleTextColor: #fff;
 $navigationView_buttonHoverBackground: rgba(255, 255, 255, 0.05);
 $navigationView_buttonActiveBackground: rgba(255, 255, 255, 0.03);
 $navigationView_buttonTextColor: #fff;
+$navigationView_buttonEnabledBackground: rgba(255, 255, 255, 0.08);
 $navigationView_contentAreaBackground: rgba(255, 255, 255, 0.05);
 $navigationView_titleBarTextColor: #fff;
 $navigationView_leftSideBarFloatingBackground: #1e1e1e;
@@ -54,9 +55,10 @@ $textBox_borderNotBottomColor: rgba(255, 255, 255, 0.02);
 $textBox_borderBottomColor: #999;
 $textBox_inputTextColor: #fff;
 $textBox_focusBorderNotBottomColor: rgba(255, 255, 255, 0.1);
+$textBox_focusBackgroundColor: transparent;
 
 // ------ | LIGHT | ------- //
-//
+
 //// Theme
 //$_theme_accent: #007aad;
 //$_theme_accentTextColor: #fff;
@@ -67,26 +69,27 @@ $textBox_focusBorderNotBottomColor: rgba(255, 255, 255, 0.1);
 //$titleBar_titleColor: #000;
 //
 //// TitleBarOverlay
-//$titleBarOverlay_buttonHoverBackground: rgba(0, 0, 0, 0.1);
-//$titleBarOverlay_buttonActiveBackground: rgba(0, 0, 0, 0.2);
+//$titleBarOverlay_buttonHoverBackground: rgba(0, 0, 0, 0.05);
+//$titleBarOverlay_buttonActiveBackground: rgba(0, 0, 0, 0.03);
 //$titleBarOverlay_buttonCloseHoverBackground: #c82c1c;
 //$titleBarOverlay_buttonCloseHoverTextColor: #fff;
-//$titleBarOverlay_buttonCloseActiveBackground: #b3271c;
-//$titleBarOverlay_buttonCloseActiveTextColor: #e5aba7;
+//$titleBarOverlay_buttonCloseActiveBackground: #c83c31;
+//$titleBarOverlay_buttonCloseActiveTextColor: #e8aeaa;
 //$titleBarOverlay_buttonTextColor: #000;
 //
 //// RootLayout
-//$rootLayout_background: #e7e7e7;
+//$rootLayout_background: #f1f1f1;
 //
 //// NavigationView
 //$navigationView_titleBarTitleTextColor: #fff;
 //$navigationView_buttonHoverBackground: rgba(0, 0, 0, 0.05);
 //$navigationView_buttonActiveBackground: rgba(0, 0, 0, 0.03);
 //$navigationView_buttonTextColor: #000;
-//$navigationView_contentAreaBackground: rgba(255, 255, 255, 0.3);
+//$navigationView_contentAreaBackground: rgba(255, 255, 255, 0.6);
 //$navigationView_titleBarTextColor: #000;
 //$navigationView_leftSideBarFloatingBackground: #e7e7e7;
 //$navigationView_leftSideBarFloatingBorder: #d4d4d4;
+//$navigationView_leftSideBarHrBackground: #d5d4d4;
 //
 //// Dialog
 //$dialog_backdropBackground: rgba(0, 0, 0, 0.5);
@@ -97,13 +100,22 @@ $textBox_focusBorderNotBottomColor: rgba(255, 255, 255, 0.1);
 //
 //// Button
 //$button_background: rgba(255, 255, 255, 0.6);
-//$button_borderNotBottomColor: rgb(227, 227, 227);
+//$button_borderNotBottomColor: rgb(238, 238, 238);
 //$button_borderBottomColor: rgb(210, 210, 210);
-//$button_activeBorderBottomColor: rgb(227, 227, 277);
+//$button_activeBorderBottomColor: rgb(227, 227, 227);
 //$button_textColor: #000;
 //$button_hoverBackground: rgba(255, 255, 255, 0.4);
 //$button_activeBackground: rgba(255, 255, 255, 0.3);
 //$button_activeTextColor: #999;
+//
+//// TextBox
+//$textBox_background: #fff;
+//$textBox_borderNotBottomColor: #dbdbdb;
+//$textBox_borderBottomColor: #8b8b8b;
+//$textBox_inputTextColor: #000;
+//$textBox_hoverBackground: #fff;
+//$textBox_focusBorderNotBottomColor: #dbdbdb;
+//$textBox_focusBackgroundColor: #fff;
 
 ::-webkit-scrollbar {
 	width: 3px;

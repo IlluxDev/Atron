@@ -8,10 +8,19 @@
 	border-radius: 4px;
 	position: relative;
 	width: 100%;
-	height: 28px;
+	height: 30px;
 	background: $textBox_background;
 	border: 1px solid $textBox_borderNotBottomColor;
 	border-bottom-color: $textBox_borderBottomColor;
+
+	&:after {
+		position: absolute;
+		display: flex;
+		width: 100%;
+		height: 1px;
+		content: "";
+		bottom: 0;
+	}
 
 	& > input {
 		width: 100%;
@@ -30,6 +39,10 @@
 	&:focus-within {
 		border-color: $textBox_focusBorderNotBottomColor;
 		border-bottom-color: $_theme_accent;
-		background: transparent;
+		background: $textBox_focusBackgroundColor;
+
+		&:after {
+			background: $_theme_accent;
+		}
 	}
 }

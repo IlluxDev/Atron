@@ -1,0 +1,100 @@
+@import "../ColorTheme";
+
+.root {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.button {
+	display: flex;
+	justify-content: space-between;
+	margin: 0 5px 5px;
+	background: transparent;
+	color: $navigationView_buttonTextColor;
+	border: none;
+	height: 35px;
+	border-radius: 4px;
+	align-items: center;
+	padding-left: 12px;
+	flex-direction: row;
+	position: relative;
+
+	&:after {
+		left: 0;
+		content: "";
+		width: 3px;
+		height: 50%;
+		border-radius: 8px;
+		transition: 100ms;
+		position: absolute;
+	}
+
+	span {
+		display: flex;
+		flex-direction: row;
+
+		span:nth-child(1) {
+			font-size: 16px;
+		}
+
+		span:nth-child(2) {
+			margin-left: 5px;
+		}
+	}
+
+	div {
+		width: 30px;
+		height: 25px;
+		border-radius: 4px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: $navigationView_buttonTextColor;
+
+		&:hover {
+			background: $navigationView_buttonHoverBackground;
+
+			&:active {
+				background: $navigationView_buttonActiveBackground;
+			}
+		}
+	}
+
+	&:hover {
+		background: $navigationView_buttonHoverBackground;
+	}
+}
+
+.buttonRouteMatched {
+	background: $navigationView_buttonEnabledBackground;
+
+	&:after {
+		background: $_theme_accent;
+	}
+}
+
+.dropDown {
+	transition: 100ms;
+	overflow: hidden;
+}
+
+.dropDownClosed {
+	height: 0;
+}
+
+.buttonHideText {
+	span {
+		span:nth-child(2) {
+			display: none;
+		}
+	}
+
+	div {
+		display: none;
+	}
+}
+
+.innerTree {
+	padding-left: 15px;
+}

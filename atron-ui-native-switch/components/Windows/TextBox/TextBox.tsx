@@ -1,4 +1,4 @@
-import { TextBoxProps } from "./TextBoxProps";
+import { TextBoxProps } from "../../Shared/TextBox/TextBoxProps";
 import React from "react";
 import styles from "./TextBox.module.scss";
 

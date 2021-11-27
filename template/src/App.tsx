@@ -1,3 +1,4 @@
+import { ipc } from "../../atron-ui-native-switch/electron/Ipc";
 import { Button, dialog, NavigationView, RootLayout, TitleBarOverlay } from "../../atron-ui-native-switch/Plugin";
 import './App.css'
 
@@ -5,11 +6,44 @@ function App() {
   return (
     <div>
 		<RootLayout>
-			<NavigationView title="My App">
-				<h1>Hello App</h1>
-				<Button style={{
-					margin: "20px"
-				}} onClick={() => dialog.show("No WiFi connection", "A WiFi connection isA WiFi connection is required to use this app required to use this app")}>Show Dialog</Button>
+			<NavigationView routes={[
+				{
+					path: "/",
+					element: <p>
+						<Button onClick={() => dialog.show("A Test Dialog", "Hello world, this is a test dialog containing this message")}>Show A Dialog</Button>
+						<Button onClick={() => {
+							ipc.send("_atron:app:restart", {});
+						}}>Restart</Button>
+					</p>
+				},
+				{
+					path: "/test",
+					element: <p>Test</p>
+				}
+			]} title="My App" links={[
+				{
+					label: "Home",
+					icon: "ic:sharp-add-circle-outline",
+					location: "/"
+				},
+				{
+					label: "Tests",
+					icon: "simple-icons:speedtest",
+					location: "/tests",
+					tree: [
+						{
+							label: "Button",
+							icon: "akar-icons:cursor",
+							location: "/tests/button"
+						},
+						{
+							label: "TextBox",
+							location: "/tests/text-box"
+						}
+					]
+				}
+			]}>
+
 			</NavigationView>
 		</RootLayout>
 		<TitleBarOverlay />

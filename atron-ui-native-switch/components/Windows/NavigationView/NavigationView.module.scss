@@ -87,12 +87,13 @@
 .leftButton {
 	border: none;
 	border-radius: 4px;
-	margin-left: 4px;
+	margin-left: 5px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	width: 40px;
 	height: 35px;
+	margin-bottom: 5px;
 	background: transparent;
 	color: $navigationView_buttonTextColor;
 	font-size: 16px;
@@ -169,6 +170,7 @@
 
 .leftSideBar {
 	width: 50px;
+	min-width: 50px;
 	transition: 300ms;
 	display: flex;
 	flex-direction: column;
@@ -192,6 +194,7 @@
 
 .leftSideBarOpened {
 	width: 320px;
+	min-width: 320px;
 	
 	@media (max-width: 1000px) {
 		background: $navigationView_leftSideBarFloatingBackground;
